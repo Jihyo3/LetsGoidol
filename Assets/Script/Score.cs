@@ -7,6 +7,7 @@ public class Score : MonoBehaviour
 {
     private Text score;
     private float time = 0f;
+
     private void Awake()
     {
         score = GetComponent<Text>();
