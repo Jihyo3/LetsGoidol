@@ -6,10 +6,18 @@ using UnityEngine.UI;
 
 public class GameStart : MonoBehaviour
 {
-    public Button startBtn;
+    private Button startBtn;
+    private Text btnTxt;
+
+    private void Awake()
+    {
+        startBtn = GetComponent<Button>();
+        btnTxt = GetComponentInChildren<Text>();
+    }
 
     public void StartBtn()
     {
-        SceneManager.LoadScene("MainScene");
+        DataManager.instance.difficulty = int.Parse(btnTxt.text);
+        SceneManager.LoadScene("MainScene");        
     }
 }
