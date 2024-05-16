@@ -9,8 +9,8 @@ public class FallingObject : MonoBehaviour
 
     void Start()
     {
-        // x 좌표를 ( -3 ~ 3 ) 사이 랜덤 생성
-        float x = Random.Range(-3.0f, 3.0f);
+        // x 좌표를 ( -8 ~ 8 ) 사이 랜덤 생성
+        float x = Random.Range(-8.0f, 8.0f);
         // y 좌표를 5로 고정
         float y = 5.0f;
         // 현재 오브젝트의 tranform 좌표에 x, y 넣기
