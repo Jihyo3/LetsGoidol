@@ -11,26 +11,26 @@ public class Disruptor_Kotori : Disruptor
     
     [SerializeField, Range(0.5f, 3f)] private float _popuptime = 1f;
        
-
     private IEnumerator m_Coroutine;
 
-    private void Awake()
+    private void Start()
     {        
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    void OnEnable()
-    {
-        if(fourEdges == null)
+        if (fourEdges == null)
         {
             float x = spriteRenderer.size.x * 0.5f;
             Disruptor disruptor = disruptorMgr.GetComponent<Disruptor>();
             fourEdges = new FourEdge[4];
-            fourEdges[0] = new FourEdge(disruptor.GetleftEdgeWorldPos()+x, disruptor.GetbottomEdgeWorldPos()+x, false, false);
-            fourEdges[1] = new FourEdge(disruptor.GetrightEdgeWorldPos()-x, disruptor.GetbottomEdgeWorldPos()+x, true, false);
-            fourEdges[2] = new FourEdge(disruptor.GetrightEdgeWorldPos()-x, disruptor.GettopEdgeWorldPos()-x, true, true);
-            fourEdges[3] = new FourEdge(disruptor.GetleftEdgeWorldPos()+x, disruptor.GettopEdgeWorldPos()-x, false, true);
+            fourEdges[0] = new FourEdge(disruptor.GetleftEdgeWorldPos() + x, disruptor.GetbottomEdgeWorldPos() + x, false, false);
+            fourEdges[1] = new FourEdge(disruptor.GetrightEdgeWorldPos() - x, disruptor.GetbottomEdgeWorldPos() + x, true, false);
+            fourEdges[2] = new FourEdge(disruptor.GetrightEdgeWorldPos() - x, disruptor.GettopEdgeWorldPos() - x, true, true);
+            fourEdges[3] = new FourEdge(disruptor.GetleftEdgeWorldPos() + x, disruptor.GettopEdgeWorldPos() - x, false, true);
         }
+    }
+
+    public void Execute()   // 실행함수
+    {
+        spriteRenderer.enabled = true;
         int i = Random.Range(0, 4);
         NewPos(fourEdges[i]);
         m_Coroutine = CoroutineMethod();
@@ -40,7 +40,7 @@ public class Disruptor_Kotori : Disruptor
     IEnumerator CoroutineMethod()
     {
         yield return new WaitForSeconds(_popuptime);
-        gameObject.SetActive(false);
+        spriteRenderer.enabled = false;
     }
 
 
@@ -50,6 +50,7 @@ public class Disruptor_Kotori : Disruptor
         spriteRenderer.flipX = _four.IsFlipX();
         spriteRenderer.flipY = _four.IsFlipY();
     }
+
 
     private class FourEdge
     {

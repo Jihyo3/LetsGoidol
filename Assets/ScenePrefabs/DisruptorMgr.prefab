@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3259627947ceb9b4fb450383a6d929ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _disruptor_kotori: {fileID: 7935733155713156082}
+  _disruptor_kotori: {fileID: 5743813156311039725}
 --- !u!114 &303127951426319273
 MonoBehaviour:
   m_ObjectHideFlags: 0

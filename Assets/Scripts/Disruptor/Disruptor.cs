@@ -9,6 +9,7 @@ public class Disruptor : MonoBehaviour
     // Disruptor : 상위클래스
     // Disruptor_xxx : 자식클래스
     // 제각각인 기능을 가진 Disruptor_xxx를 List로 담을 수 있게하기 위함.
+    // Disruptor_xxx 초기화함수를 여기서 부른다.
 
 
     protected Camera mainCamera;
