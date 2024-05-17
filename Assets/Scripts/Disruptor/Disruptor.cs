@@ -9,6 +9,7 @@ public class Disruptor : MonoBehaviour, IDisruptor
     // Disruptor : 상위클래스
     // Disruptor_xxx : 자식클래스
     // 제각각인 기능을 가진 Disruptor_xxx를 List로 담을 수 있게하기 위함.
+    // 자주 쓰일것 같은 변수를 이 클래스에서 얻었습니다.
     
 
 

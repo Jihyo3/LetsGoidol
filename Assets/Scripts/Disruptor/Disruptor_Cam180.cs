@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class Disruptor_Cam180 : Disruptor
 {
+    // 카메라를 180도 돌리는 방해기믹입니다.
+
     [SerializeField] private Camera _mainCamera;
     
     [SerializeField, Range(0.5f, 3f)] private float duration = 1.5f;
     
-
-    private void Start()
-    {
-        
-    }
-
-
     public override void Execute()
     {
         StartCoroutine(CoroutineMethod());
@@ -32,6 +27,4 @@ public class Disruptor_Cam180 : Disruptor
     {
         _mainCamera.transform.Rotate(0,0,180f);
     }
-
-
 }

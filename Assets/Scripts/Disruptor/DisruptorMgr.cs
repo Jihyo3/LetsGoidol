@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class DisruptorMgr : MonoBehaviour
 {
-    // DisruptorMgr에서는 다른 클래스등에서 Disruptor를 불러오기 위한 창구
+    // DisruptorMgr에서는 다른 클래스등에서 Disruptor를 불러오기 위한 창구역할을 하는 클래스입니다.
+
+    public static DisruptorMgr Instance;
+
 
     // 호출할 방해물
 
@@ -12,11 +15,17 @@ public class DisruptorMgr : MonoBehaviour
     [SerializeField] private Disruptor _disruptor_Camera;
     [SerializeField] private Disruptor _disruptor_Cam180;
 
-
     List<Disruptor> _disruptorList;
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else Destroy(gameObject);
+
+
         if (_disruptorList == null)
         {
             _disruptorList = new List<Disruptor>
@@ -45,7 +54,6 @@ public class DisruptorMgr : MonoBehaviour
     }
 
     // 랜덤한 방해물 부르기
-    // 
     public void CallDisruptor_Random()
     {
         int i = Random.Range(0, _disruptorList.Count);
