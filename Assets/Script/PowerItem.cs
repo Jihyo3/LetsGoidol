@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PowerItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Transform player;
+
+    private void Awake()
     {
-        
+        player = GetComponent<Transform>();
+        UseItem(5f);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UseItem(float itemUseTime)
     {
-        
+        if (itemUseTime > 0f)
+        {
+           player.transform.localScale = new Vector3(1.5f,1.5f,1);
+           itemUseTime -= Time.deltaTime;
+        }
+        else
+        {
+            player.transform.localScale = new Vector3(1f, 1f, 1);
+        }
     }
 }
