@@ -25,11 +25,6 @@ public class Disruptor : MonoBehaviour
         GetCameraEdgeToWolrdPos();
     }
 
-    // 카메라의 뷰포트To월드 좌표 따기
-    // 카메라가 찍고있는 월드좌표를 구하고 4등분으로 나눈다
-    // 퍼센테이지로 
-    // 0,0 1,1
-    // 화면에 찍히고 있는 월드포지션의 영역을 구하라
     private void GetCameraEdgeToWolrdPos()
     {
         // 화면의 각 구석의 뷰포트 좌표
@@ -46,4 +41,9 @@ public class Disruptor : MonoBehaviour
         leftEdgeWorldPos = bottomLeftWorld.x;
         rightEdgeWorldPos = topRightWorld.x;
     }
+
+    public float GettopEdgeWorldPos()    {  return topEdgeWorldPos; }
+    public float GetbottomEdgeWorldPos() {  return bottomEdgeWorldPos; }
+    public float GetleftEdgeWorldPos() { return leftEdgeWorldPos; }
+    public float GetrightEdgeWorldPos() { return rightEdgeWorldPos; }
 }

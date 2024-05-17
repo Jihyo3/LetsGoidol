@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 386275767719920326}
   - component: {fileID: 2055831401844243434}
+  - component: {fileID: 303127951426319273}
   m_Layer: 0
   m_Name: DisruptorMgr
   m_TagString: Untagged
@@ -45,7 +46,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3259627947ceb9b4fb450383a6d929ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _disruptor: {fileID: 7935733155713156082}
+  _disruptor_kotori: {fileID: 7935733155713156082}
+--- !u!114 &303127951426319273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4895381634454290695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3397a99b9c0ae8345b133c8e03db2274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7935733155713156082
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,12 +71,12 @@ GameObject:
   - component: {fileID: 1419280781887098333}
   - component: {fileID: 5743813156311039725}
   m_Layer: 0
-  m_Name: Disruptor
+  m_Name: Disruptor0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2344631045946390995
 Transform:
   m_ObjectHideFlags: 0
@@ -143,3 +156,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0612736b1ebcbc944af9b35b28010d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disruptorMgr: {fileID: 2055831401844243434}
+  _popuptime: 1
