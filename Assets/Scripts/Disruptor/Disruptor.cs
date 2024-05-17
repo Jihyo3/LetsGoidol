@@ -1,105 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Disruptor : MonoBehaviour
 {
     // Disruptor는 갖가지 방해물게임오브젝트의 작동을 구현하는 클래스입니다.
+    // Disruptor : 상위클래스
+    // Disruptor_xxx : 자식클래스
+    // 제각각인 기능을 가진 Disruptor_xxx를 List로 담을 수 있게하기 위함.
 
-    [SerializeField] SpriteRenderer spriteRenderer;
 
-    private FourEdge[] fourEdges;
+    protected Camera mainCamera;
+
+    protected float topEdgeWorldPos;
+    protected float bottomEdgeWorldPos;
+    protected float leftEdgeWorldPos;
+    protected float rightEdgeWorldPos;
 
     
-
-    public Disruptor()
+    protected virtual void Awake()
     {
-        fourEdges = new FourEdge[4];
-        fourEdges[0] = new FourEdge(-4.11f, -0.2f, false, false);
-        fourEdges[1] = new FourEdge(4.07f, -0.2f, true, false);
-        fourEdges[2] = new FourEdge(4.07f, 0.2f, true, true);
-        fourEdges[3] = new FourEdge(-4.11f, 0.2f, false, true);
+        mainCamera = Camera.main;
+        GetCameraEdgeToWolrdPos();
     }
 
-
-    private IEnumerator m_Coroutine;
-
-    void OnEnable()
+    // 카메라의 뷰포트To월드 좌표 따기
+    // 카메라가 찍고있는 월드좌표를 구하고 4등분으로 나눈다
+    // 퍼센테이지로 
+    // 0,0 1,1
+    // 화면에 찍히고 있는 월드포지션의 영역을 구하라
+    private void GetCameraEdgeToWolrdPos()
     {
-        int i = Random.Range(0, 4);
-        NewPos(fourEdges[i]);
-        m_Coroutine = CoroutineMethod();
-        StartCoroutine(m_Coroutine); // 코루틴을 시작하는 함수       
-    }
+        // 화면의 각 구석의 뷰포트 좌표
+        Vector3 bottomLeftViewport = new Vector3(0, 0, 0);
+        Vector3 topRightViewport = new Vector3(1, 1, 0);
 
-    IEnumerator CoroutineMethod()
-    {
-        
-        yield return new WaitForSeconds(2f);
-        gameObject.SetActive(false);
-    }
+        // 뷰포트 좌표를 월드 좌표로 변환
+        Vector3 bottomLeftWorld = mainCamera.ViewportToWorldPoint(bottomLeftViewport);
+        Vector3 topRightWorld   = mainCamera.ViewportToWorldPoint(topRightViewport);
 
-    // 배열에 세팅할 좌표와 flip값 집어넣기
-
-    void NewPos(FourEdge _four)
-    {
-        //int screenWidth = Screen.width;
-        //int screenHeight = Screen.height;
-        gameObject.transform.position = new Vector2(_four.Getx(), _four.Gety());
-        spriteRenderer.flipX = _four.IsFlipX();
-        spriteRenderer.flipY = _four.IsFlipY();
-
-    }
-
-
-    void CallDisruptor1()   // 코토리
-    {
-        // 화면 해상도가 바뀌더라도 구석에서 생성되도록 하기.
-        // 스크린 구하기
-        
-
-        // 오브젝트 활성화
-        gameObject.SetActive(true);
-    }
-
-
-    void Disrupt1()
-    {
-
-    }
-
-}
-
-public class FourEdge
-{
-    private float x;
-    private float y;
-    private bool flipX;
-    private bool flipY;
-
-    public FourEdge(float _x, float _y, bool _flipX, bool _flipY)
-    {
-        x = _x;
-        y = _y;
-        flipX = _flipX;
-        flipY = _flipY;
-    }
-
-    public float Getx()
-    {
-        return x;
-    }
-    public float Gety()
-    {
-        return y;
-    }
-    public bool IsFlipX()
-    {
-        return flipX;
-    }
-    public bool IsFlipY()
-    {
-        return flipY;
+        // 화면 끝 좌표를 구함
+        topEdgeWorldPos = topRightWorld.y;
+        bottomEdgeWorldPos = bottomLeftWorld.y;
+        leftEdgeWorldPos = bottomLeftWorld.x;
+        rightEdgeWorldPos = topRightWorld.y;
     }
 
 }

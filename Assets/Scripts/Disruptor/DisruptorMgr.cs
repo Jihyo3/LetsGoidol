@@ -16,11 +16,15 @@ public class DisruptorMgr : MonoBehaviour
 
     public void CallDisruptor()
     {
-        _disruptor.SetActive(true);        
-
+        _disruptor.SetActive(true);
     }
 
+    // 랜덤한 방해물 부르기
+    // 
+    public void CallRandomDisruptor()
+    {
 
+    }
 
 
 }

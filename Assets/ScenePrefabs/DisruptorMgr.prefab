@@ -55,8 +55,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2344631045946390995}
-  - component: {fileID: 7756008065131439016}
   - component: {fileID: 1419280781887098333}
+  - component: {fileID: 5743813156311039725}
   m_Layer: 0
   m_Name: Disruptor
   m_TagString: Untagged
@@ -79,19 +79,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 386275767719920326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7756008065131439016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935733155713156082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3397a99b9c0ae8345b133c8e03db2274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1419280781887098333}
 --- !u!212 &1419280781887098333
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -144,3 +131,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5743813156311039725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935733155713156082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0612736b1ebcbc944af9b35b28010d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
