@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-    float speed = 0.05f;    // 낙하 속도
+    private float speed = 0.05f;    // 낙하 속도
 
-    void Start()
+    private void Start()
     {
         // x 좌표를 ( -8 ~ 8 ) 사이 랜덤 생성
         float x = Random.Range(-8.0f, 8.0f);
@@ -17,7 +17,7 @@ public class FallingObject : MonoBehaviour
         transform.position = new Vector2(x, y);
     }
 
-    void Update()
+    private void Update()
     {
         // 현재 오브젝트가 아래로 speed 만큼 이동
         transform.position += Vector3.down * speed;
