@@ -19,7 +19,7 @@ public class Disruptor : MonoBehaviour
     protected float rightEdgeWorldPos;
 
     
-    protected virtual void Awake()
+    public void InitDisruptor() // TODO :: 게임매니저 등에서 일괄적으로 초기화되도록 하기.
     {
         mainCamera = Camera.main;
         GetCameraEdgeToWolrdPos();
@@ -44,7 +44,6 @@ public class Disruptor : MonoBehaviour
         topEdgeWorldPos = topRightWorld.y;
         bottomEdgeWorldPos = bottomLeftWorld.y;
         leftEdgeWorldPos = bottomLeftWorld.x;
-        rightEdgeWorldPos = topRightWorld.y;
+        rightEdgeWorldPos = topRightWorld.x;
     }
-
 }

@@ -8,15 +8,19 @@ public class DisruptorMgr : MonoBehaviour
 
     // 호출할 방해물
 
-    [SerializeField] private GameObject _disruptor; // 유니티에서 드래그앤드롭캐싱하기
+    [SerializeField] private GameObject _disruptor_kotori; // 유니티에서 드래그앤드롭캐싱하기
 
     private Disruptor disruptor;    // 
 
-    
+    private void Awake()
+    {
+        disruptor = GetComponent<Disruptor>();
+        disruptor.InitDisruptor();
+    }
 
     public void CallDisruptor()
     {
-        _disruptor.SetActive(true);
+        _disruptor_kotori.SetActive(true);
     }
 
     // 랜덤한 방해물 부르기

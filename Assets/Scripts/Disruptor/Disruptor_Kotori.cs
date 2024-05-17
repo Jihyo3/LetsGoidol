@@ -8,30 +8,35 @@ public class Disruptor_Kotori : Disruptor
     private SpriteRenderer spriteRenderer;
 
     private FourEdge[] fourEdges;
-
-    [SerializeField] private float _popuptime = 1f;
     
-    public Disruptor_Kotori()
-    {
-        fourEdges = new FourEdge[4];
-        
-        fourEdges[0] = new FourEdge(-4.11f, -0.2f, false, false);
-        fourEdges[1] = new FourEdge(4.07f, -0.2f, true, false);
-        fourEdges[2] = new FourEdge(4.07f, 0.2f, true, true);
-        fourEdges[3] = new FourEdge(-4.11f, 0.2f, false, true);
-    }
+    [SerializeField, Range(0.5f, 3f)] private float _popuptime = 1f;
+       
 
     private IEnumerator m_Coroutine;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        
+    private void Awake()
+    {        
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+
+        
+
+        //fourEdges[0] = new FourEdge(-4.11f, -0.2f, false, false);
+        //fourEdges[1] = new FourEdge(4.07f, -0.2f, true, false);
+        //fourEdges[2] = new FourEdge(4.07f, 0.2f, true, true);
+        //fourEdges[3] = new FourEdge(-4.11f, 0.2f, false, true);
     }
 
     void OnEnable()
     {
+        if(fourEdges == null)
+        {
+            fourEdges = new FourEdge[4];
+            fourEdges[0] = new FourEdge(leftEdgeWorldPos, bottomEdgeWorldPos, false, false);
+            fourEdges[1] = new FourEdge(rightEdgeWorldPos, bottomEdgeWorldPos, true, false);
+            fourEdges[2] = new FourEdge(rightEdgeWorldPos, topEdgeWorldPos, true, true);
+            fourEdges[3] = new FourEdge(leftEdgeWorldPos, topEdgeWorldPos, false, true);
+        }
         int i = Random.Range(0, 4);
         NewPos(fourEdges[i]);
         m_Coroutine = CoroutineMethod();
@@ -58,6 +63,7 @@ public class Disruptor_Kotori : Disruptor
         private float y;
         private bool flipX;
         private bool flipY;
+
 
         public FourEdge(float _x, float _y, bool _flipX, bool _flipY)
         {
