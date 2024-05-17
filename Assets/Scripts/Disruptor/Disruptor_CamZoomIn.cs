@@ -11,10 +11,10 @@ public class Disruptor_Camera : Disruptor
     private Camera _mainCamera;
 
     [SerializeField, Range(0.5f, 3f)] private float duration = 1f;
-    [SerializeField, Range(0.5f, 3f)] private float sightSize = 2.5f;
+    [SerializeField, Range(0.5f, 3f)] private float sightSize = 2f;
     //private IEnumerator m_Coroutine;
 
-    private void Awake()
+    private void Start()
     {
         _mainCamera = disruptor.GetmainCamera();
     }

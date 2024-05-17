@@ -5,7 +5,7 @@ using UnityEngine;
 public class Disruptor_Kotori : Disruptor
 {
     // 플레이 스크린 구석에서 랜덤하게 등장하여 화면을 가리는 방해물입니다.
-    [SerializeField] private Disruptor disruptor;
+    private Disruptor disruptor;
     private SpriteRenderer spriteRenderer;    
     private FourEdge[] fourEdges;
     
