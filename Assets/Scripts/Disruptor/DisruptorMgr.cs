@@ -10,7 +10,9 @@ public class DisruptorMgr : MonoBehaviour
 
     [SerializeField] private Disruptor _disruptor_kotori; // 유니티에서 드래그앤드롭캐싱하기
     [SerializeField] private Disruptor _disruptor_Camera;
-    
+    [SerializeField] private Disruptor _disruptor_Cam180;
+
+
     List<Disruptor> _disruptorList;
 
     private void Awake()
@@ -20,7 +22,8 @@ public class DisruptorMgr : MonoBehaviour
             _disruptorList = new List<Disruptor>
             {
                 _disruptor_kotori,
-                _disruptor_Camera
+                _disruptor_Camera,
+                _disruptor_Cam180
             };
         }
     }
@@ -35,6 +38,10 @@ public class DisruptorMgr : MonoBehaviour
     public void CallDisruptor_camera()
     {
         _disruptor_Camera.Execute();
+    }
+    public void CallDisruptor_Cam180()
+    {
+        _disruptor_Cam180.Execute();
     }
 
     // 랜덤한 방해물 부르기
