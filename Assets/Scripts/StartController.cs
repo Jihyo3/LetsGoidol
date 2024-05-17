@@ -7,8 +7,14 @@ using UnityEngine.UI;
 public class StartController : MonoBehaviour
 {
     private Button startBtn;
+    private Button joinBtn;
 
     public void StartBtnClick()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void JoinBtnClick()
     {
         SceneManager.LoadScene("MainScene");
     }
