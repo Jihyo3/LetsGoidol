@@ -9,18 +9,22 @@ public class DisruptorMgr : MonoBehaviour
     // 호출할 방해물
 
     [SerializeField] private Disruptor_Kotori _disruptor_kotori; // 유니티에서 드래그앤드롭캐싱하기
-
-    private Disruptor disruptor;    // 
+    [SerializeField] private Disruptor_Camera _disruptor_Camera;
+    
 
     private void Awake()
     {
-        disruptor = GetComponent<Disruptor>();
-        disruptor.InitDisruptor();
+       
     }
 
-    public void CallDisruptor()
+    public void CallDisruptor_kotori()
     {
         _disruptor_kotori.Execute();
+    }
+
+    public void CallDisruptor_camera()
+    {
+        _disruptor_Camera.Execute();
     }
 
     // 랜덤한 방해물 부르기

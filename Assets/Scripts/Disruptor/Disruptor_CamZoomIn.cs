@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Disruptor_CamZoomIn : Disruptor
+public class Disruptor_Camera : Disruptor
 {
     // 플레이어를 중심으로 카메라의 시야를 좁히는 방해물입니다.
 
