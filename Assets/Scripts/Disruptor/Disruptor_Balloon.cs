@@ -14,7 +14,7 @@ public class Disruptor_Balloon : Disruptor
     //Vector2 balloonPos = Vector2.zero;
     private static readonly int IsActive = Animator.StringToHash("IsActive");
 
-    private bool IsExecute = false;
+    [SerializeField] private bool IsExecute = false;
 
     private void Awake()
     {
@@ -34,16 +34,17 @@ public class Disruptor_Balloon : Disruptor
 
         // GameObject 활성화 후 Animation 재생, 재생이 끝나면 GameObject 비활성화
         ballooncenter.SetActive(true);
-        animator.SetBool(IsActive, true);        
+        animator.SetBool(IsActive, true);
     }
 
     public void DisableForAnimation()   // Animation Clip에서 호출되는 메서드
     {
-        //ballooncenter.transform.position = balloonPos;  // 올라간 풍선오브젝트를 제자리로 되돌림
         animator.SetBool(IsActive, false);
         ballooncenter.SetActive(false);
         IsExecute = false;
+        //ballooncenter.transform.position = balloonPos;  // 올라간 풍선오브젝트를 제자리로 되돌림
     }
-    // 가지고 있는 문제 : "BalloonCenter" gameObject가 아래로 되돌아오기 전에 Execute를 호출하면 고장남. gameObject가 올라간자리에서 활성화되어 계속 남아있음.
-    
+    // 가지고 있는 문제 : "BalloonCenter" gameObject가 아래로 되돌아오기 전에 Execute를 호출하면 gameObject가 올라간자리에서 활성화되어 계속 남아있음.
+    // DisableForAnimation()이 끝나고도 gameObject는 내려가는게 늦음.
+    // 해결 : Animation Clip "BalloonIdle"을 추가, Transition에서 Has Exit Time 체크를 해제.
 }
