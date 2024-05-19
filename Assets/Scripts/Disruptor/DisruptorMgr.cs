@@ -8,6 +8,8 @@ public class DisruptorMgr : MonoBehaviour
 
     public static DisruptorMgr Instance;
 
+    List<Disruptor> _disruptorList;
+
 
     // 호출할 방해물
 
@@ -16,8 +18,6 @@ public class DisruptorMgr : MonoBehaviour
     [SerializeField] private Disruptor _disruptor_Cam180;
     [SerializeField] private Disruptor _disruptor_Balloon;
 
-    List<Disruptor> _disruptorList;
-
     private void Awake()
     {
         if (Instance == null)
@@ -25,8 +25,10 @@ public class DisruptorMgr : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+    }
 
-
+    private void Start()
+    {
         if (_disruptorList == null)
         {
             _disruptorList = new List<Disruptor>
@@ -39,7 +41,7 @@ public class DisruptorMgr : MonoBehaviour
         }
     }
 
-    
+
 
     public void CallDisruptor_kotori()
     {
