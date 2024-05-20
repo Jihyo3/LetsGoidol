@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameDifficulty : MonoBehaviour
 {
-    
+    private int diifficulty = 0;
 
 
 }
