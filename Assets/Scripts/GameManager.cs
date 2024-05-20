@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class GameManager : MonoBehaviour
     // 배열로 아이템 프리팹을 저장할 변수
     // GameManager 인스펙터 창에서 증가 감소 가능
     public GameObject[] falling_ItemPrefabs;
+
+    // 객체 풀링을 위한 ObjectPool 인스턴스
+    public ObjectPool objectPool;
 
     private void Awake()
     {
@@ -28,9 +32,12 @@ public class GameManager : MonoBehaviour
     }
 
     private void FallingObject()
-    {
-        // 오브젝트생성 키워드 ( fallingObject )
-        Instantiate(fallingObject);
+    {        
+        GameObject obj = objectPool.GetPooledObject();      // 풀에서 비활성화된 obj를 받아오기
+        if (obj != null)                                    // obj가 null이 아니면
+        {
+            obj.SetActive(true);                            // obj 활성화
+        }
     }
 
     private void RandomItem()
