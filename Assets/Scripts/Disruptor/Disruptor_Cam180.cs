@@ -6,10 +6,15 @@ public class Disruptor_Cam180 : Disruptor
 {
     // 카메라를 180도 돌리는 방해기믹입니다.
 
-    [SerializeField] private Camera _mainCamera;
+    private Camera _mainCamera;
     
     [SerializeField, Range(0.5f, 3f)] private float duration = 1.5f;
-    
+
+    private void Awake()
+    {
+        _mainCamera = Camera.main;
+    }
+
     public override void Execute()
     {
         StartCoroutine(CoroutineMethod());

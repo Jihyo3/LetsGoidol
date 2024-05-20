@@ -6,17 +6,18 @@ public class Disruptor_CamZoonIn : Disruptor
 {
     // 플레이어를 중심으로 카메라의 시야를 좁히는 방해물입니다.
 
-    [SerializeField] private Disruptor disruptor;
+    private Disruptor disruptor;
     [SerializeField] private GameObject player;
     private Camera _mainCamera;
 
     [SerializeField, Range(0.5f, 3f)] private float duration = 1f;
     [SerializeField, Range(0.5f, 3f)] private float sightSize = 2f;
-    //private IEnumerator m_Coroutine;
+    
 
-    private void Start()
+    private void Awake()
     {
-        _mainCamera = disruptor.GetmainCamera();
+        disruptor = transform.parent.GetComponent<Disruptor>();
+        _mainCamera = Camera.main;
     }
 
 
