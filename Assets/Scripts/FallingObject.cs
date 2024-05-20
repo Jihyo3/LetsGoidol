@@ -13,8 +13,8 @@ public class FallingObject : MonoBehaviour
         // 활성화될 때마다 위치를 재설정합니다.
         ResetPosition();
     }
-
-    private void ResetPosition()
+    
+    private void ResetPosition()    // 오브젝트 위치 설정
     {
         // x 좌표를 ( -8 ~ 8 ) 사이 랜덤 생성
         float x = Random.Range(-8.0f, 8.0f);

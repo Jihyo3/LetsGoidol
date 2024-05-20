@@ -18,14 +18,4 @@ public class ItemShield : MonoBehaviour
         rb2d.transform.position = playerPosition + new Vector2(0 , 1f);
     }
 
-    private void LateUpdate()
-    {
-        Vector2 playerScale = player.transform.localScale;
-        ShildSize(playerScale);
-    }
-
-    private void ShildSize(Vector2 dir)
-    {
-        rb2d.transform.localScale = dir * rb2d.transform.localScale;
-    }
 }
