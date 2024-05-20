@@ -16,23 +16,30 @@ public class Disruptor_Balloon : Disruptor
 
     [SerializeField] private bool IsExecute = false;
 
+    private AudioSource audioSource;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         Transform firstChildTransform = transform.GetChild(0);  // 하이어라키 순서 주의
         ballooncenter = firstChildTransform.gameObject;
         //balloonPos = ballooncenter.transform.position;
     }
-    
-    
 
-   
+    public void GenerateSFX()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
+    }
+
+
     public override void Execute()
     {
         if (IsExecute) return;  // Balloon이 작동 중일 때 또 호출되지 않도록 하는 예외처리
         IsExecute = true;
 
         // GameObject 활성화 후 Animation 재생, 재생이 끝나면 GameObject 비활성화
+        GenerateSFX();
         ballooncenter.SetActive(true);
         animator.SetBool(IsActive, true);
     }
