@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjecPool : MonoBehaviour
+public class ObjectPool : MonoBehaviour
 {
     // 오브젝트 풀링하고자 하는 프리팹을 저장할 변수
     public GameObject objectPrefab;
@@ -41,7 +41,7 @@ public class ObjecPool : MonoBehaviour
         GameObject newObj = Instantiate(objectPrefab);
         newObj.SetActive(false);
         pool.Add(newObj);
-                
+
         return newObj;                          // newObj로 작업 수행
 
         // 비활성화된 오브젝트가 있으면 해당 obj를 반환
