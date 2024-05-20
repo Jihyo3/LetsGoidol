@@ -28,7 +28,7 @@ public class FallingItem : MonoBehaviour
         // 닿은 물체의 태그가 Ground 이면
         if (collision.CompareTag("Ground"))
         {
-            Debug.Log("아이템 충돌");
+            Debug.Log("바닥에 아이템 충돌");
             // 현재 오브젝트 제거
             Destroy(gameObject);
         }

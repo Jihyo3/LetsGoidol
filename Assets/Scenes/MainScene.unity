@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8954ac7fb9f9c244798d1170e342fe84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingObject: {fileID: 2508926964978624959, guid: fe3b31a28ba84de4dafa1660dbbce1de, type: 3}
   falling_ItemPrefabs:
   - {fileID: 2508926964978624959, guid: ed380c690068d6e4ba661edb3477a384, type: 3}
   - {fileID: 2508926964978624959, guid: 9613f9c05118bce43ac0a55a8cc654da, type: 3}
@@ -630,7 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 2508926964978624959, guid: fe3b31a28ba84de4dafa1660dbbce1de, type: 3}
-  poolSize: 10
+  poolSize: 5
 --- !u!4 &919731778
 Transform:
   m_ObjectHideFlags: 0

@@ -5,9 +5,6 @@ using UnityEngine.Pool;
 
 public class GameManager : MonoBehaviour
 {
-    // 인스턴스할 프리팹을 저장할 변수
-    public GameObject fallingObject;
-
     // 배열로 아이템 프리팹을 저장할 변수
     // GameManager 인스펙터 창에서 증가 감소 가능
     public GameObject[] falling_ItemPrefabs;
