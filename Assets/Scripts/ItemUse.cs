@@ -1,43 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemUse : MonoBehaviour
 {
     private Transform player;
     [SerializeField] private GameObject shield;
-    float itemTime = 5f;
+    float[] itemTime = { 5f, 5f, 5f }; // 각각 아이템마다 시간 적용
+    bool[] itemUse = { false , false, false }; // 각각 아이템마다 사용중인지 아닌지 체크
+
+
 
     private void Awake()
     {
         player = GetComponent<Transform>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(itemTime == 0f)
+        if (itemUse[0])itemTime[0] -= Time.deltaTime; // 아이템이 사용될때 각각 아이템의 시간이 흘러갑니다
+        if (itemUse[1])itemTime[1] -= Time.deltaTime;
+        if (itemUse[2])itemTime[2] -= Time.deltaTime;
+
+        if (PlayerTimeCheck(0)) // 아이템 사용후 체크해 이전의 상태로 되돌립니다
         {
-            itemTime = 5.0f;
+            player.localScale = new Vector3(1, 1, 1);
+            itemUse[0] = false; // 아이템 사용체크 초기화
+            itemTime[0] = 5f; // 사용한시간은 초기화
         }
+        if (PlayerTimeCheck(1))
+        {
+            shield.SetActive(false);
+            itemUse[1] = false;
+            itemTime[1] = 5f;
+        }
+        if (PlayerTimeCheck(2));
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+
+    private void OnTriggerEnter2D(Collider2D collision) // 아이템 감지 트리거
     {
         if (collision.CompareTag("SizeUpItem"))
         {
-            player.localScale = new Vector3(1.5f,1.5f,1);
-            itemTime -= Time.deltaTime;
+            player.localScale = new Vector3(0.5f,0.5f,1);
+            itemUse[0] = true;
         }
 
-        if (collision.CompareTag("Shield"))
+        else if (collision.CompareTag("Shield"))
         {
             shield.SetActive(true);
-            itemTime -= Time.deltaTime;
+            itemUse[1] = true;
         }
 
-        if (collision.CompareTag("Unknow"))
+        else if (collision.CompareTag("Untagged"))
         {
 
+        }
+
+    }
+
+
+
+    private bool PlayerTimeCheck(int i) // 아이템 시간 체크 메서드
+    {
+        if (itemTime[i] <= 0f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
