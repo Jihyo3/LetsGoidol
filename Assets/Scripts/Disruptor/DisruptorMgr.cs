@@ -25,23 +25,24 @@ public class DisruptorMgr : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+
+        _disruptorList = new List<Disruptor>();
+        _disruptorList.Add(_disruptor_kotori);
+        _disruptorList.Add(_disruptor_Camera);
+        _disruptorList.Add(_disruptor_Cam180);
+        _disruptorList.Add(_disruptor_Balloon);
     }
 
-    private void Start()
+
+
+    // 랜덤한 방해물 부르기
+    public void CallDisruptor_Random()
     {
-        if (_disruptorList == null)
-        {
-            _disruptorList = new List<Disruptor>
-            {
-                _disruptor_kotori,
-                _disruptor_Camera,
-                _disruptor_Cam180,
-                _disruptor_Balloon
-            };
-        }
+        if (_disruptorList == null) return;
+
+        int i = Random.Range(0, _disruptorList.Count);
+        _disruptorList[i].Execute();
     }
-
-
 
     public void CallDisruptor_kotori()
     {
@@ -60,12 +61,4 @@ public class DisruptorMgr : MonoBehaviour
     {
         _disruptor_Balloon.Execute();
     }
-
-    // 랜덤한 방해물 부르기
-    public void CallDisruptor_Random()
-    {
-        int i = Random.Range(0, _disruptorList.Count);
-        _disruptorList[i].Execute();
-    }
-
 }

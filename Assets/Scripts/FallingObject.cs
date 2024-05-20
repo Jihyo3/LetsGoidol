@@ -43,7 +43,7 @@ public class FallingObject : MonoBehaviour
         // 닿은 물체의 태그가 Ground 이면
         if (collision.CompareTag("Ground"))
         {
-            Debug.Log("충돌");
+            Debug.Log("바닥에 충돌");
             // 오브젝트 비활성화
             gameObject.SetActive(false);
         }
