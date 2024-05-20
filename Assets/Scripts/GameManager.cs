@@ -24,14 +24,31 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // 메서드 반복 호출 키워드 ( FallingObject / 0.0f초 딜레이 / 1.0f초 반복 )
-        InvokeRepeating("FallingObject", 0.0f, 1.0f);
-
+        InvokeRepeating("FallingObjectCreat", 0.0f, 1.0f);
         // RandomItem 메서드를 호출 / 게임 시작 3초 뒤에 랜덤 아이템 생성 / 5초마다 랜덤 아이템 생성
         // 아이템의 크기 or 첫 생성 시간을 조절하여 오브젝트가 겹치지 않게 할 수 있습니다.
         InvokeRepeating("RandomItem", 3.0f, 5.0f);
     }
-
-    private void FallingObject()
+    private void Update()
+    {
+        bool[] difCheck = { true, true, true };
+        if (FallingObject.instance.speed >= 3f && FallingObject.instance.speed <= 6f && difCheck[0])
+        {
+            InvokeRepeating("FallingObjectCreat", 0.0f, 1.0f);
+            difCheck[0] = false;
+        }
+        else if (FallingObject.instance.speed >= 6f && FallingObject.instance.speed <= 12f && difCheck[1])
+        {
+            InvokeRepeating("FallingObjectCreat", 0.0f, 0.5f);
+            difCheck[1] = false;
+        }
+        else if (FallingObject.instance.speed >= 12f && difCheck[2])
+        {
+            InvokeRepeating("FallingObjectCreat", 0.0f, 0.3f);
+            difCheck[2] = false;
+        }
+    }
+    private void FallingObjectCreat()
     {        
         GameObject obj = objectPool.GetPooledObject();      // 풀에서 비활성화된 obj를 받아오기
         if (obj != null)                                    // obj가 null이 아니면

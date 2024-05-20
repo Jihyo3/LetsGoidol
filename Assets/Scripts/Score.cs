@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    private static Score instance; 
+    public static Score instance; 
     private TMP_Text score;
-    private float time = 0f;
+    public float time = 0f;
 
     private void Awake()
     {

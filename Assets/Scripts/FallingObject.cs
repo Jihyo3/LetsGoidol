@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
+    static public FallingObject instance;
     public float speed = 3f;    // 낙하 속도
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // 오브젝트가 활성화될 때 호출되는 메서드 : OnEnable
     private void OnEnable()
@@ -28,6 +34,7 @@ public class FallingObject : MonoBehaviour
     {
         // 현재 오브젝트가 아래로 speed 만큼 이동
         transform.position += Vector3.down * speed * Time.deltaTime;
+        Difficulty();
     }
 
     // 콜라이더의 isTrigger 체크
@@ -39,6 +46,21 @@ public class FallingObject : MonoBehaviour
             Debug.Log("충돌");
             // 오브젝트 비활성화
             gameObject.SetActive(false);
+        }
+    }
+    private void Difficulty() // 난이도 조절을 위한 메서드
+    {
+        if (Score.instance.time >= 10f && Score.instance.time <= 20f)
+        {
+            speed = 6f;
+        }
+        else if (Score.instance.time >= 20f && Score.instance.time <= 30f)
+        {
+            speed = 12f;
+        }
+        else if (Score.instance.time >= 30f)
+        {
+            speed = 18f;
         }
     }
 }
