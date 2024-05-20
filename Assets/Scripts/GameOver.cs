@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class GameOver : MonoBehaviour
@@ -21,5 +22,15 @@ public class GameOver : MonoBehaviour
             Destroy(collision.gameObject);
             overMenu.SetActive(true); // 추후 변경예정 
         }
+    }
+
+    public void RetryBtnClick()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void StartSceneBtnClick()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }
