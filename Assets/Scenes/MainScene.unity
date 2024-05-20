@@ -463,7 +463,7 @@ PrefabInstance:
     - target: {fileID: 1964771756517801706, guid: 6e41edfbb0aae2145a309b042c0b99e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1863017881}
+      objectReference: {fileID: 0}
     - target: {fileID: 1964771756517801706, guid: 6e41edfbb0aae2145a309b042c0b99e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CallDisruptor_Random
@@ -551,7 +551,7 @@ PrefabInstance:
     - target: {fileID: 5389730839418101557, guid: 6e41edfbb0aae2145a309b042c0b99e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1863017881}
+      objectReference: {fileID: 0}
     - target: {fileID: 5389730839418101557, guid: 6e41edfbb0aae2145a309b042c0b99e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CallDisruptor_kotori
@@ -563,7 +563,7 @@ PrefabInstance:
     - target: {fileID: 6928681341726421625, guid: 6e41edfbb0aae2145a309b042c0b99e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1863017881}
+      objectReference: {fileID: 0}
     - target: {fileID: 6928681341726421625, guid: 6e41edfbb0aae2145a309b042c0b99e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CallDisruptor_kotori
@@ -575,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 8223986341959292199, guid: 6e41edfbb0aae2145a309b042c0b99e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1863017881}
+      objectReference: {fileID: 0}
     - target: {fileID: 8223986341959292199, guid: 6e41edfbb0aae2145a309b042c0b99e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CallDisruptor_kotori
@@ -593,47 +593,47 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614340654723868384, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 1087754321232439433, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4189858529839797359, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
+    - target: {fileID: 4287068360698558428, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
       propertyPath: m_Name
       value: DisruptorMgr
       objectReference: {fileID: 0}
@@ -649,18 +649,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
---- !u!114 &1863017881 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1645287547447217239, guid: 31ca12c79723d344fa1c176eb0e6fb42, type: 3}
-  m_PrefabInstance: {fileID: 1863017879}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3259627947ceb9b4fb450383a6d929ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SourcePrefab: {fileID: 100100000, guid: b6409f6dc2c8e4e42bbb067ad5323f51, type: 3}
 --- !u!1 &1953709448
 GameObject:
   m_ObjectHideFlags: 0
