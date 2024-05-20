@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 public class StartController : MonoBehaviour
 {
@@ -12,9 +13,12 @@ public class StartController : MonoBehaviour
     private Button joinBtn;
     private Button joinCloseBtn;
     [SerializeField] private GameObject joinBgImg;
+    [SerializeField] private GameObject loginBgImg;
     public TMP_InputField myIdField;
     public TMP_InputField myPassWordField;
     public PlayerJoinManager playerJoinManager;
+    public float delayTime = 5f;
+    private CanvasGroup loginCanvasGroup;
 
     private string userInfoFilePath; 
 
@@ -26,7 +30,24 @@ public class StartController : MonoBehaviour
         }
 
         userInfoFilePath = Path.Combine(Application.persistentDataPath, "PlayerInfo.json");
+        loginCanvasGroup = loginBgImg.GetComponent<CanvasGroup>();
+        StartCoroutine(ShowloginImg());
     }
+
+    IEnumerator ShowloginImg()
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        float elapsedTime = 0f;
+        while (elapsedTime < delayTime)
+        {
+            elapsedTime += Time.deltaTime;
+            loginCanvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsedTime / delayTime); // 서서히 투명도 증가
+            yield return null;
+        }
+        loginCanvasGroup.alpha = 1f; // 최종적으로 투명도를 1로 설정
+    }
+
 
     public void StartBtnClick()
     {
