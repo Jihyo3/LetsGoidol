@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
     public AudioClip[] bgMusic;
+    public Toggle backGroundMusic1;
+    public Toggle backGroundMusic2;
+    public Toggle backGroundMusic3;
+    private Toggle currentToggle;
     private AudioSource audioSource;
 
     private void Awake()
@@ -25,6 +30,10 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         PlayBackgroundMusic(0);
+
+        backGroundMusic1.onValueChanged.AddListener(delegate { ToggleClick(); });
+        backGroundMusic2.onValueChanged.AddListener(delegate { ToggleClick(); });
+        backGroundMusic3.onValueChanged.AddListener(delegate { ToggleClick(); });
     }
 
     // Update is called once per frame
@@ -40,4 +49,20 @@ public class SoundManager : MonoBehaviour
             audioSource.Play();
         }
     }
+    public void ToggleClick()
+    {
+        if (backGroundMusic1.isOn)
+        {
+            PlayBackgroundMusic(0);
+        }
+        else if (backGroundMusic2.isOn)
+        {
+            PlayBackgroundMusic(1);
+        }
+        else if (backGroundMusic3.isOn)
+        {
+            PlayBackgroundMusic(2);
+        }
+    }
+
 }

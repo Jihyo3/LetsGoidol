@@ -11,6 +11,7 @@ public class StartController : MonoBehaviour
 {
     [SerializeField] private GameObject joinBgImg;
     [SerializeField] private GameObject loginBgImg;
+    [SerializeField] private GameObject setBgImg;
     [SerializeField] private GameObject singleBgImg;
     [SerializeField] private GameObject multiBgImg;
     public Button loginBtn;
@@ -72,6 +73,18 @@ public class StartController : MonoBehaviour
         startBtn.gameObject.SetActive(false);
         loginBtn.gameObject.SetActive(true);
         
+    }
+
+    public void SetBtnClick()
+    {
+        if (setBgImg.activeSelf)
+        {
+            setBgImg.SetActive(false);
+        }
+        else
+        {
+            setBgImg.SetActive(true);
+        }
     }
 
     public void LoginBtnClick()
