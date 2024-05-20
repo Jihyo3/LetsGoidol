@@ -7,7 +7,7 @@ public class ObjectPool : MonoBehaviour
     // 오브젝트 풀링하고자 하는 프리팹을 저장할 변수
     public GameObject objectPrefab;
     // 오브젝트 풀링하여 생성할 오브젝트 개수
-    public int poolSize = 10;
+    public int poolSize = 5;
 
     // 오브젝트를 List로 관리
     private List<GameObject> pool;
@@ -18,7 +18,8 @@ public class ObjectPool : MonoBehaviour
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)              // 반복문을 사용하여
         {
-            GameObject obj = Instantiate(objectPrefab); // 오브젝트를 생성하고
+            GameObject obj = Instantiate(objectPrefab, transform.position, Quaternion.identity); ; // 오브젝트를 생성하고
+            obj.transform.parent = transform;           // 현재 오브젝트의 자식 오브젝트로 생성
             obj.SetActive(false);                       // 비활성화
             pool.Add(obj);                              // List의 i 번째에 저장
         }
@@ -38,7 +39,8 @@ public class ObjectPool : MonoBehaviour
         }
 
         // 모든 obj가 활성화되어 있는 경우 새 객체를 생성하여 풀에 추가
-        GameObject newObj = Instantiate(objectPrefab);
+        GameObject newObj = Instantiate(objectPrefab, transform.position, Quaternion.identity);
+        newObj.transform.parent = transform;
         newObj.SetActive(false);
         pool.Add(newObj);
 
