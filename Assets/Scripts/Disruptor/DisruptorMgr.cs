@@ -8,14 +8,15 @@ public class DisruptorMgr : MonoBehaviour
 
     public static DisruptorMgr Instance;
 
+    List<Disruptor> _disruptorList;
+
 
     // 호출할 방해물
 
     [SerializeField] private Disruptor _disruptor_kotori; // 유니티에서 드래그앤드롭캐싱하기
     [SerializeField] private Disruptor _disruptor_Camera;
     [SerializeField] private Disruptor _disruptor_Cam180;
-
-    List<Disruptor> _disruptorList;
+    [SerializeField] private Disruptor _disruptor_Balloon;
 
     private void Awake()
     {
@@ -24,20 +25,23 @@ public class DisruptorMgr : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+    }
 
-
+    private void Start()
+    {
         if (_disruptorList == null)
         {
             _disruptorList = new List<Disruptor>
             {
                 _disruptor_kotori,
                 _disruptor_Camera,
-                _disruptor_Cam180
+                _disruptor_Cam180,
+                _disruptor_Balloon
             };
         }
     }
 
-    
+
 
     public void CallDisruptor_kotori()
     {
@@ -51,6 +55,10 @@ public class DisruptorMgr : MonoBehaviour
     public void CallDisruptor_Cam180()
     {
         _disruptor_Cam180.Execute();
+    }
+    public void CallDisruptor_Balloon()
+    {
+        _disruptor_Balloon.Execute();
     }
 
     // 랜덤한 방해물 부르기
