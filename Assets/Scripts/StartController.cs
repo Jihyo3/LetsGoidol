@@ -9,13 +9,12 @@ using System;
 
 public class StartController : MonoBehaviour
 {
-    private Button startBtn;
-    private Button joinBtn;
-    private Button joinCloseBtn;
     [SerializeField] private GameObject joinBgImg;
     [SerializeField] private GameObject loginBgImg;
     [SerializeField] private GameObject singleBgImg;
     [SerializeField] private GameObject multiBgImg;
+    public Button loginBtn;
+    public Button startBtn;
     public TMP_InputField myIdField;
     public TMP_InputField myPassWordField;
     public PlayerJoinManager playerJoinManager;
@@ -33,7 +32,7 @@ public class StartController : MonoBehaviour
 
         userInfoFilePath = Path.Combine(Application.persistentDataPath, "PlayerInfo.json");
         loginCanvasGroup = loginBgImg.GetComponent<CanvasGroup>();
-        StartCoroutine(ShowloginImg());
+
     }
 
     IEnumerator ShowloginImg()
@@ -50,12 +49,6 @@ public class StartController : MonoBehaviour
         loginCanvasGroup.alpha = 1f; // 최종적으로 투명도를 1로 설정
     }
 
-
-    public void StartBtnClick()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
-
     public void JoinTxtClick()
     {
         joinBgImg.SetActive(true);
@@ -70,6 +63,15 @@ public class StartController : MonoBehaviour
     {
         // 유저 추가 성공 시 joinBgImg 비활성화
         joinBgImg.SetActive(false);
+    }
+
+    public void StartBtnClick()
+    {
+        loginBgImg.SetActive(true);
+        StartCoroutine(ShowloginImg());
+        startBtn.gameObject.SetActive(false);
+        loginBtn.gameObject.SetActive(true);
+        
     }
 
     public void LoginBtnClick()
