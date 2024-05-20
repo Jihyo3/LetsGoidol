@@ -14,6 +14,8 @@ public class StartController : MonoBehaviour
     private Button joinCloseBtn;
     [SerializeField] private GameObject joinBgImg;
     [SerializeField] private GameObject loginBgImg;
+    [SerializeField] private GameObject singleBgImg;
+    [SerializeField] private GameObject multiBgImg;
     public TMP_InputField myIdField;
     public TMP_InputField myPassWordField;
     public PlayerJoinManager playerJoinManager;
@@ -106,5 +108,17 @@ public class StartController : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void SingleBtnClick()
+    {
+        singleBgImg.SetActive(true);
+        multiBgImg.SetActive(false);
+    }
+
+    public void MultiBtnClick()
+    {
+        singleBgImg.SetActive(false);
+        multiBgImg.SetActive(true);
     }
 }
