@@ -6,11 +6,16 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+    private static Score instance; 
     private TMP_Text score;
     private float time = 0f;
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         score = GetComponent<TMP_Text>();
     }
 
