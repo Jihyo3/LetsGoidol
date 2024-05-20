@@ -23,19 +23,19 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             this.transform.Translate(-speed * Time.deltaTime,0,0);
+            renderer.flipX = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             this.transform.Translate(speed * Time.deltaTime,0,0);
+            renderer.flipX = false;
         }
         if (transform.position.x > 8.4f)
         {
-            renderer.flipX = true;
             direction = -0.05f;
         }
         if (transform.position.x < -8.4f)
         {
-            renderer.flipX = false;
             direction = 0.05f;
         }
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
