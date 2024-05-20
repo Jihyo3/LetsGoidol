@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5452292151279542330}
   - component: {fileID: 5885342525847870083}
-  - component: {fileID: 9193469906941364663}
   - component: {fileID: -6026990815758656768}
   - component: {fileID: 7672442668290548957}
+  - component: {fileID: 9193469906941364663}
   m_Layer: 0
   m_Name: Falling_Object
   m_TagString: Untagged
@@ -87,18 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9193469906941364663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2508926964978624959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 061d800fcfecbbf40845490f4278ece3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &-6026990815758656768
 Rigidbody2D:
   serializedVersion: 4
@@ -171,3 +159,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9193469906941364663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508926964978624959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061d800fcfecbbf40845490f4278ece3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
