@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class GameOver : MonoBehaviour
 {
     private GameObject player;
-    [SerializeField] GameObject overMenu; // 추후 변경예정
 
     private void Awake()
     {
@@ -16,11 +15,10 @@ public class GameOver : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("badComments"))
+        if (collision.CompareTag("FallingObject"))
         {
-            Time.timeScale = 0f;
-            Destroy(collision.gameObject);
-            overMenu.SetActive(true); // 추후 변경예정 
+            ScoreManager.instance.score = Score.instance.time;
+            SceneManager.LoadScene(3);
         }
     }
 
