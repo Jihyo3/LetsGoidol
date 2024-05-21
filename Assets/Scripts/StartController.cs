@@ -94,6 +94,7 @@ public class StartController : MonoBehaviour
 
         if (CheckLogin(enteredId, enteredPassword))
         {
+            ScoreManager.instance.id = myIdField.text;
             SceneManager.LoadScene("MainScene");
         }
         else

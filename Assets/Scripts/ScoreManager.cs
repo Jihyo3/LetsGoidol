@@ -6,6 +6,8 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
     public float score;
+    public string id;
+
     private void Awake()
     {
         if (instance == null)

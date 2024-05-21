@@ -15,7 +15,7 @@ public class ItemShield : MonoBehaviour
     private void Update()
     {
         Vector2 playerPosition = player.transform.position;        
-        rb2d.transform.position = playerPosition + new Vector2(0 , 1f);
+        rb2d.transform.position = playerPosition + new Vector2(0 , 1.5f);
     }
 
 }
