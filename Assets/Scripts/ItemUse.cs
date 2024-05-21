@@ -10,6 +10,7 @@ public class ItemUse : MonoBehaviour
     [SerializeField] private GameObject shield;
     float[] itemTime = { 5f, 5f, 5f }; // 각각 아이템마다 시간 적용
     bool[] itemUse = { false , false, false }; // 각각 아이템마다 사용중인지 아닌지 체크
+    float back;
 
 
 
@@ -36,7 +37,12 @@ public class ItemUse : MonoBehaviour
             itemUse[1] = false;
             itemTime[1] = 5f;
         }
-        if (PlayerTimeCheck(2));
+        if (PlayerTimeCheck(2))
+        {
+            FallingObject.instance.speed = back;
+            itemUse[2] = false;
+            itemTime[2] = 5f;
+        }
 
     }
 
@@ -44,7 +50,7 @@ public class ItemUse : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) // 아이템 감지 트리거
     {
-        if (collision.CompareTag("SizeUpItem"))
+        if (collision.CompareTag("SizeDownItem"))
         {
             player.localScale = new Vector3(0.5f,0.5f,1);
             itemUse[0] = true;
@@ -56,9 +62,11 @@ public class ItemUse : MonoBehaviour
             itemUse[1] = true;
         }
 
-        else if (collision.CompareTag("Untagged"))
+        else if (collision.CompareTag("SlowDown"))
         {
-
+            back = FallingObject.instance.speed;
+            FallingObject.instance.speed = 2f;
+            itemUse[2] = true;
         }
 
     }
