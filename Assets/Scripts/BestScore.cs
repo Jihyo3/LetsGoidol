@@ -7,13 +7,14 @@ public class BestScore : MonoBehaviour
 {
     [SerializeField] private Text ScoreNow;
     [SerializeField] private Text ScoreBest;
+
     void Start()
     {
-        float currentScore = ScoreManager.instance.score;
-        string bestScore = "";
-        ScoreNow.text = ScoreManager.instance.score.ToString("N2");
+        float currentScore = ScoreManager.instance.score; // 현재 스코어 점수를 받아온뒤 currentScore 값에 저장한다.
+        string bestScore = ""; //최고 점수를 기록해두기위한 string
+        ScoreNow.text = ScoreManager.instance.score.ToString("N2"); // 현재 점수값을 받아온뒤 text 에 기입한다.
 
-        if (PlayerPrefs.HasKey(bestScore))
+        if (PlayerPrefs.HasKey(bestScore)) // 만약 플레이어 최고값이 있을시 실행
         {
             float score = PlayerPrefs.GetFloat(bestScore);
 
@@ -27,10 +28,10 @@ public class BestScore : MonoBehaviour
                 ScoreBest.text = score.ToString("N2");
             }
         }
-        else
+        else // 플레이어 최고값이 없을시 실행.
         {
-            PlayerPrefs.SetFloat(bestScore, currentScore);
-            ScoreBest.text = currentScore.ToString("N2");
+            PlayerPrefs.SetFloat(bestScore, currentScore); // 현재 스코어를 최고스코어로 저장한다.
+            ScoreBest.text = currentScore.ToString("N2"); // 현재스코어를 최고 스코어로 출력한다.
         }
     }
 
