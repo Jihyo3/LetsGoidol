@@ -5,6 +5,7 @@ using UnityEngine.Pool;
 
 public class GameManager : MonoBehaviour
 {
+    static public GameManager instance;
     // 배열로 아이템 프리팹을 저장할 변수
     // GameManager 인스펙터 창에서 증가 감소 가능
     public GameObject[] falling_ItemPrefabs;
@@ -12,10 +13,12 @@ public class GameManager : MonoBehaviour
     // 객체 풀링을 위한 ObjectPool 인스턴스
     public ObjectPool objectPool;
 
+    public int check;
     private void Awake()
     {
         // 프레임 60으로 제한
         Application.targetFrameRate = 60;
+        instance = this;       
     }
 
     private void Start()
@@ -25,26 +28,14 @@ public class GameManager : MonoBehaviour
         // RandomItem 메서드를 호출 / 게임 시작 3초 뒤에 랜덤 아이템 생성 / 5초마다 랜덤 아이템 생성
         // 아이템의 크기 or 첫 생성 시간을 조절하여 오브젝트가 겹치지 않게 할 수 있습니다.
         InvokeRepeating("RandomItem", 3.0f, 5.0f);
+        StartCoroutine(DifCheck());
     }
+
     private void Update()
     {
-        bool[] difCheck = { true, true, true };
-        if (FallingObject.instance.speed >= 3f && FallingObject.instance.speed <= 6f && difCheck[0])
-        {
-            InvokeRepeating("FallingObjectCreat", 0.0f, 1.0f);
-            difCheck[0] = false;
-        }
-        else if (FallingObject.instance.speed >= 6f && FallingObject.instance.speed <= 12f && difCheck[1])
-        {
-            InvokeRepeating("FallingObjectCreat", 0.0f, 0.5f);
-            difCheck[1] = false;
-        }
-        else if (FallingObject.instance.speed >= 12f && difCheck[2])
-        {
-            InvokeRepeating("FallingObjectCreat", 0.0f, 0.3f);
-            difCheck[2] = false;
-        }
+        
     }
+
     private void FallingObjectCreat()
     {        
         GameObject obj = objectPool.GetPooledObject();      // 풀에서 비활성화된 obj를 받아오기
@@ -68,4 +59,32 @@ public class GameManager : MonoBehaviour
         // 랜덤하게 정해진 아이템 프리팹을 생성
         Instantiate(randomItemPrefab);
     }
+    IEnumerator DifCheck()
+    {
+
+        while (true)
+        {
+            yield return new WaitForSeconds(10f);
+
+            if (check == 1)
+            {
+                CancelInvoke("FallingObjectCreat");
+                InvokeRepeating("FallingObjectCreat", 0f, 0.4f);
+            }
+            else if (check == 2)
+            {
+                CancelInvoke("FallingObjectCreat");
+                InvokeRepeating("FallingObjectCreat", 0f, 0.3f);
+            }
+            else if (check == 3)
+            {
+                CancelInvoke("FallingObjectCreat");
+                InvokeRepeating("FallingObjectCreat", 0f, 0.2f);
+            }
+        }
+
+    }
+
+
+
 }

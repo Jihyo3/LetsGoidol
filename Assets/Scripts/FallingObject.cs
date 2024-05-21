@@ -7,6 +7,7 @@ public class FallingObject : MonoBehaviour
 {
     static public FallingObject instance;
     public float speed = 3f;    // 낙하 속도
+    bool[] Check = { true, true, true };
 
     private void Awake()
     {
@@ -41,7 +42,7 @@ public class FallingObject : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 닿은 물체의 태그가 Ground 이면
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ground") || collision.CompareTag("UserShield"))
         {
             Debug.Log("바닥에 충돌");
             // 오브젝트 비활성화
@@ -50,17 +51,24 @@ public class FallingObject : MonoBehaviour
     }
     private void Difficulty() // 난이도 조절을 위한 메서드
     {
-        if (Score.instance.time >= 10f && Score.instance.time <= 20f)
+        if (Score.instance.time >= 10.0f && Score.instance.time <= 20.0f && Check[0])
         {
-            speed = 6f;
+            speed = 5f;
+            Check[0] = false;
+            GameManager.instance.check = 1;
+
         }
-        else if (Score.instance.time >= 20f && Score.instance.time <= 30f)
+        else if (Score.instance.time >= 20.0f && Score.instance.time <= 30.0f && Check[1])
+        {
+            speed = 8f;
+            Check[1] = false;
+            GameManager.instance.check = 2;
+        }
+        else if (Score.instance.time >= 30.0f && Check[2])
         {
             speed = 12f;
-        }
-        else if (Score.instance.time >= 30f)
-        {
-            speed = 18f;
+            Check[2] = false;
+            GameManager.instance.check = 3;
         }
     }
 }
