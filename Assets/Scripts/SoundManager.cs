@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour
     public Toggle backGroundMusic1;
     public Toggle backGroundMusic2;
     public Toggle backGroundMusic3;
-    private Toggle currentToggle;
+    //private Toggle currentToggle;
     private AudioSource audioSource;
 
     private void Awake()
