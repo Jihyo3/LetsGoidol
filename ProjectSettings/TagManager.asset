@@ -8,6 +8,8 @@ TagManager:
   - Shield
   - SizeUpItem
   - item3
+  - UserShield
+  - FallingObject
   layers:
   - Default
   - TransparentFX

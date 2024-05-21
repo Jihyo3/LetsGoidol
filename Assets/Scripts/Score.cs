@@ -15,13 +15,13 @@ public class Score : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            
         }
         score = GetComponent<TMP_Text>();
     }
 
     private void Update()
     {
-
         time += Time.deltaTime;
         score.text = time.ToString("N2");
     }
