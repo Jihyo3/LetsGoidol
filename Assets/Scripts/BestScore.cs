@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class BestScore : MonoBehaviour
 {
+    public static BestScore instance;   
     [SerializeField] private Text ScoreNow;
     [SerializeField] private Text ScoreBest;
+    private string id;
+
 
     void Start()
     {
+        id = ScoreManager.instance.id;
         float currentScore = ScoreManager.instance.score; // 현재 스코어 점수를 받아온뒤 currentScore 값에 저장한다.
-        string bestScore = ""; //최고 점수를 기록해두기위한 string
+        string bestScore = "" + id; //최고 점수를 기록해두기위한 string
         ScoreNow.text = ScoreManager.instance.score.ToString("N2"); // 현재 점수값을 받아온뒤 text 에 기입한다.
 
         if (PlayerPrefs.HasKey(bestScore)) // 만약 플레이어 최고값이 있을시 실행
