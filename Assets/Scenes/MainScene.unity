@@ -502,6 +502,7 @@ MonoBehaviour:
   - {fileID: 2508926964978624959, guid: ed380c690068d6e4ba661edb3477a384, type: 3}
   - {fileID: 2508926964978624959, guid: 9613f9c05118bce43ac0a55a8cc654da, type: 3}
   - {fileID: 2508926964978624959, guid: 76dbac65e18190c40923cf40bd374ab9, type: 3}
+  - {fileID: 2508926964978624959, guid: 128352a97a795274f8473494076c9f6d, type: 3}
   ObstacleImgs:
   - {fileID: 21300000, guid: 0bc0346d3d6568245bea748fbbad6821, type: 3}
   - {fileID: 21300000, guid: 5cf51a858bf938d499237b23c885450d, type: 3}
