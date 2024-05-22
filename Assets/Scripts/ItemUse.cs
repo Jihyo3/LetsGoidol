@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ItemUse : MonoBehaviour
 {
     private Transform player;
-    [SerializeField] private GameObject shield;
+    public GameObject shield;
     float[] itemTime = { 5f, 5f, 5f }; // 각각 아이템마다 시간 적용
     bool[] itemUse = { false , false, false }; // 각각 아이템마다 사용중인지 아닌지 체크
 
@@ -17,6 +17,7 @@ public class ItemUse : MonoBehaviour
     {
         player = GetComponent<Transform>();
         missilestation = FindObjectOfType<MissileStation>();
+        shield = FindInactiveObjectWithTag("UserShield");
     }
 
     private void Update()
@@ -86,5 +87,19 @@ public class ItemUse : MonoBehaviour
         {
             return false;
         }
+    }
+
+
+    public static GameObject FindInactiveObjectWithTag(string tag)
+    {
+        Transform[] allTransforms = Resources.FindObjectsOfTypeAll<Transform>();
+        foreach (Transform t in allTransforms)
+        {
+            if (t.gameObject.CompareTag(tag) && !t.gameObject.activeInHierarchy)
+            {
+                return t.gameObject;
+            }
+        }
+        return null;
     }
 }
