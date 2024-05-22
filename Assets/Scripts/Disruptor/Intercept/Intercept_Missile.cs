@@ -18,12 +18,12 @@ public class Intercept_Missile : Missile
     [SerializeField] private float speed = 30f;
 
     private bool IsLaunched = false;
-    private float delayFuzeTime = 0f;
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        ladar = FindObjectOfType<Ladar>();
+        ladar = transform.parent.GetComponent<Ladar>();
         player = transform.root.gameObject;
     }
 
@@ -35,15 +35,8 @@ public class Intercept_Missile : Missile
 
     private void FixedUpdate()
     {
-        if (IsLaunched && direction != null)
-        {
-            Movemove();
-            delayFuzeTime += Time.deltaTime;
-            if (delayFuzeTime > 10f)
-            {
-                Destroy(gameObject);
-            }
-        }
+        if (IsLaunched && direction!=null)
+        Movemove();
     }
 
     // Launch 를 호출하면 픽스드 업데이트가 실행된다.
@@ -77,7 +70,6 @@ public class Intercept_Missile : Missile
         IsLaunched = false;
         Destroy(gameObject);
     }
-
 
 
     //private void OnCollisionEnter2D(Collision2D collision)

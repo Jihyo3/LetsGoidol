@@ -12,7 +12,6 @@ TagManager:
   - FallingObject
   - SizeDownItem
   - SlowDown
-  - AddMissile
   layers:
   - Default
   - TransparentFX
