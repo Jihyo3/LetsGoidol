@@ -14,6 +14,7 @@ public class CharacterSkill : MonoBehaviour
     public Player _player;                  // SpeedUP 스킬을 위해 Player스크립트 연결
     public GameObject text;                 // 특수능력 없음 스킬을 위해 TEXT오브젝트 연결
 
+    private GameObject fo;
     public int skillCount = 1;             // 스킬 사용 가능 횟수
 
     private void Awake()
@@ -25,6 +26,8 @@ public class CharacterSkill : MonoBehaviour
         _player = GetComponent<Player>();           // 현재 오브젝트의 Player 컴포넌트를 연결
         text = GameObject.Find("SkillText");        // SkillText오브젝트를 찾아서 연결
         //ItemShield.instance.player = this.gameObject;
+
+        fo = GameObject.Find("Falling_Object(Clone)");
 
         // GameObject.Find(" ") 는 현재 활성화 되어있는 오브젝트에서 이름을 찾아주는 코드
         // => 인스턴스를 위해 활성화해두고 시작하면 바로 비활성화 되게 설정
@@ -72,11 +75,14 @@ public class CharacterSkill : MonoBehaviour
         else if (gameObject.name == "puk(Clone)")
             StartCoroutine(ActiveText());           // 텍스트 스킬 3초간 활성화
     }
-    
+
     IEnumerator DisablePoolObject()
     {
         // 기존의 활성화 되어 있는 fallingObject 비활성화
-
+        if (fo.activeSelf)
+        {
+            fo.SetActive(false);
+        }
         // Pool 오브젝트를 비활성화
         poolObject.SetActive(false);
 
