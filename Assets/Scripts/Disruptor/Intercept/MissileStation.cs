@@ -16,7 +16,6 @@ public class MissileStation : MonoBehaviour
     [SerializeField] private GameObject playerContainer;
     public Transform playertransform; 
 
-    int maxMissile = 5;
     private void Awake()
     {
         missileStation = new Stack<Missile>();
