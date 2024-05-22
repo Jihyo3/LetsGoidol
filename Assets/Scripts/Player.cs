@@ -10,14 +10,16 @@ public class Player : MonoBehaviour
     float direction = 0.05f;
     public float speed = 6;
     SpriteRenderer renderer;
-    // Start is called before the first frame update
+
+    private GameObject player;
+
     void Start()
     {
         Application.targetFrameRate = 60;
         renderer = GetComponent<SpriteRenderer>();
+        //player[GameManager.instance.playernum].SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.A))
