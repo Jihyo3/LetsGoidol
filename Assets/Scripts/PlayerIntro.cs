@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
+// 삭제해도 되는 코드
 public class PlayerIntro : MonoBehaviour
 {
     public Button button;
