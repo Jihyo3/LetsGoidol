@@ -26,7 +26,7 @@ public class FallingItem : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 닿은 물체의 태그가 Ground 이면
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ground") || collision.CompareTag("Player"))
         {
             Debug.Log("바닥에 아이템 충돌");
             // 현재 오브젝트 제거

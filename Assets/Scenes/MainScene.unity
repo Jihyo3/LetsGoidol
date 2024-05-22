@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 1640752829}
+  FallingObject: {fileID: 919731776}
 --- !u!114 &1081295248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,6 +1098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  id: 
 --- !u!4 &1735707826
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 778831211619575120}
   m_Layer: 0
   m_Name: Falling_Item 2
-  m_TagString: SlowDown
+  m_TagString: ObjectDel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
