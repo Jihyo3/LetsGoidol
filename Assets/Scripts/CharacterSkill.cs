@@ -27,7 +27,6 @@ public class CharacterSkill : MonoBehaviour
         // => 인스턴스를 위해 활성화해두고 시작하면 바로 비활성화 되게 설정
         shieldObject.SetActive(false);
         text.SetActive(false);
-        player = GetComponent<Transform>();
     }
 
     void Update()
