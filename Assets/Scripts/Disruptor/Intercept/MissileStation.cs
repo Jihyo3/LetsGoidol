@@ -13,17 +13,17 @@ public class MissileStation : MonoBehaviour
     [SerializeField] private Missile prefab;
 
     [SerializeField] private TMP_Text missileNum;
-
+    [SerializeField] private GameObject playerContainer;
     public Transform playertransform; 
 
     int maxMissile = 5;
     private void Awake()
     {
         missileStation = new Stack<Missile>();
-        playertransform = FindObjectOfType<Player>().transform;
     }
     private void Update()
     {
+        playertransform = playerContainer.GetComponentInChildren<Player>().transform;
         missileNum.text = missileStation.Count.ToString();
     }
 

@@ -25,7 +25,7 @@ public class Playerobject : MonoBehaviour
         }
     }
 
-    void Start()
+    void Awake()
     {
         GetPlayerPrefabs();
     }
