@@ -35,7 +35,7 @@ public class CharacterSkill : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))                // W 키를 입력하면
+        if (Input.GetKeyDown(KeyCode.W))                // W 키를 입력하면
         {
             if (skillCount >= 1)                     // 스킬사용 가능 횟수가 1 일 때
             {
