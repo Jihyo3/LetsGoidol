@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5042443760574003139}
   - component: {fileID: 1683819834167067893}
   - component: {fileID: 6132606644490782581}
-  - component: {fileID: -6169812770195633949}
   m_Layer: 0
   m_Name: sujeong
   m_TagString: Untagged
@@ -99,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c24c01fe0285f48b5ee4467e578feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
 --- !u!95 &6132606644490782581
 Animator:
   serializedVersion: 5
@@ -121,19 +119,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-6169812770195633949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966896503936209580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c47b3324196814b89fc10eb4f74604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolObject: {fileID: 0}
-  shieldObject: {fileID: 0}
-  _player: {fileID: 0}
-  text: {fileID: 0}

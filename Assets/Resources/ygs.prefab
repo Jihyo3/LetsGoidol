@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2978644591790625191}
   - component: {fileID: 3638383796369595111}
   - component: {fileID: 4087226159902198682}
-  - component: {fileID: -3434229600515729875}
   m_Layer: 0
   m_Name: ygs
   m_TagString: Untagged
@@ -99,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c24c01fe0285f48b5ee4467e578feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
 --- !u!95 &4087226159902198682
 Animator:
   serializedVersion: 5
@@ -121,19 +119,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-3434229600515729875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617279281558161934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c47b3324196814b89fc10eb4f74604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolObject: {fileID: 0}
-  shieldObject: {fileID: 0}
-  _player: {fileID: 0}
-  text: {fileID: 0}
