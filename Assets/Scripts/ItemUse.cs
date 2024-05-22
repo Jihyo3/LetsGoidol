@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class ItemUse : MonoBehaviour
 {
-    public static ItemUse Instance;
     private Transform player;
     public GameObject shield;
     float[] itemTime = { 5f, 5f, 5f }; // 각각 아이템마다 시간 적용
@@ -16,9 +15,9 @@ public class ItemUse : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
         player = GetComponent<Transform>();
         missilestation = FindObjectOfType<MissileStation>();
+        shield = FindInactiveObjectWithTag("UserShield");
     }
 
     private void Update()
@@ -88,5 +87,19 @@ public class ItemUse : MonoBehaviour
         {
             return false;
         }
+    }
+
+
+    public static GameObject FindInactiveObjectWithTag(string tag)
+    {
+        Transform[] allTransforms = Resources.FindObjectsOfTypeAll<Transform>();
+        foreach (Transform t in allTransforms)
+        {
+            if (t.gameObject.CompareTag(tag) && !t.gameObject.activeInHierarchy)
+            {
+                return t.gameObject;
+            }
+        }
+        return null;
     }
 }
