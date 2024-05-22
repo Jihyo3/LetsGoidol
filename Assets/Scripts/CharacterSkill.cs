@@ -17,7 +17,11 @@ public class CharacterSkill : MonoBehaviour
 
     private void Awake()
     {
-        player = GetComponent<Transform>();
+        poolObject = GameObject.Find("Pool");
+        shieldObject = GameObject.Find("Shilde");
+        player = this.transform;
+        _player = GetComponent<Player>();
+        text = GameObject.Find("SkillText");
     }
 
     void Update()
@@ -37,12 +41,20 @@ public class CharacterSkill : MonoBehaviour
 
     void UseSkill()
     {
-        // 캐릭터 구분으로 호출 수정 필요
-        //StartCoroutine(DisablePoolObject());    // 떨어지는 오브젝트 3초간 제거
-        //StartCoroutine(SizeDown());             // 플레이어 크기 3초간 줄이기
-        //StartCoroutine(ActiveSheild());         // 쉴드 오브젝트 3초간 활성화  (태그 UserShiled 확인)
-        //StartCoroutine(SpeedUp());              // 이동 속도 3초간 증가
-        StartCoroutine(ActiveText());           // 텍스트 스킬 3초간 활성화
+        if (gameObject.name == "insu")
+            StartCoroutine(DisablePoolObject());    // 떨어지는 오브젝트 3초간 제거
+
+        else if (gameObject.name == "sujeong")
+            StartCoroutine(SizeDown());             // 플레이어 크기 3초간 줄이기
+
+        else if (gameObject.name == "jihyo")
+            StartCoroutine(ActiveSheild());         // 쉴드 오브젝트 3초간 활성화  (태그 UserShiled 확인)
+
+        else if (gameObject.name == "ygs")
+            StartCoroutine(SpeedUp());              // 이동 속도 3초간 증가
+
+        else
+            StartCoroutine(ActiveText());           // 텍스트 스킬 3초간 활성화
     }
     
     IEnumerator DisablePoolObject()
