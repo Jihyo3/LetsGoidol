@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class ItemUse : MonoBehaviour
 {
+    public static ItemUse Instance;
     private Transform player;
-    [SerializeField] private GameObject shield;
+    public GameObject shield;
     float[] itemTime = { 5f, 5f, 5f }; // 각각 아이템마다 시간 적용
     bool[] itemUse = { false , false, false }; // 각각 아이템마다 사용중인지 아닌지 체크
 
@@ -15,6 +16,7 @@ public class ItemUse : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         player = GetComponent<Transform>();
         missilestation = FindObjectOfType<MissileStation>();
     }

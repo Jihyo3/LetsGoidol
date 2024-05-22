@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ItemShield : MonoBehaviour
 {
+    public static ItemShield instance;
     private Rigidbody2D rb2d;
-    [SerializeField] private GameObject player;
+    public GameObject player;
 
     private void Awake()
     {
+        instance = this;
         rb2d = GetComponent<Rigidbody2D>();
     }
 
