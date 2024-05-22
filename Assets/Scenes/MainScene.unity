@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 1640752834}
   - component: {fileID: 1640752833}
   m_Layer: 0
-  m_Name: Shiled
+  m_Name: Shield
   m_TagString: UserShield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
