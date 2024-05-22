@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -8076255201439078674}
   - component: {fileID: -9101209874455943138}
   - component: {fileID: 60108098590663342}
+  - component: {fileID: 1585162779688831541}
   m_Layer: 0
   m_Name: puk
   m_TagString: Player
@@ -139,6 +140,7 @@ MonoBehaviour:
   shieldObject: {fileID: 0}
   _player: {fileID: 0}
   text: {fileID: 0}
+  skillCount: 1
 --- !u!50 &-9101209874455943138
 Rigidbody2D:
   serializedVersion: 4
@@ -201,3 +203,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.3428571, y: 1.8857143}
   m_Direction: 0
+--- !u!114 &1585162779688831541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7482838405536193586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a1f493172c6fe48bebf63e6fba88a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

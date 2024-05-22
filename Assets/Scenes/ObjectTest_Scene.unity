@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 594561405}
   - component: {fileID: 594561404}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: SkillText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6773585, b: 0.6773585, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.2547419, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -972,6 +972,7 @@ MonoBehaviour:
   shieldObject: {fileID: 191379915}
   _player: {fileID: 946966515}
   text: {fileID: 594561402}
+  skillCount: 1
 --- !u!1 &1563570523
 GameObject:
   m_ObjectHideFlags: 0

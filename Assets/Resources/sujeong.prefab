@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5565103803976741644}
   - component: {fileID: -6711881707830945991}
   - component: {fileID: 3398207128125230431}
+  - component: {fileID: 867590432232988757}
   m_Layer: 0
   m_Name: sujeong
   m_TagString: Player
@@ -139,6 +140,7 @@ MonoBehaviour:
   shieldObject: {fileID: 0}
   _player: {fileID: 0}
   text: {fileID: 0}
+  skillCount: 1
 --- !u!50 &-6711881707830945991
 Rigidbody2D:
   serializedVersion: 4
@@ -201,3 +203,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.3428571, y: 1.6857142}
   m_Direction: 0
+--- !u!114 &867590432232988757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966896503936209580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a1f493172c6fe48bebf63e6fba88a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

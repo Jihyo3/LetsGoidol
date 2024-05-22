@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -7428755226093635252}
   - component: {fileID: -300876285396845766}
   - component: {fileID: 1662563334086189177}
+  - component: {fileID: 2314266543810916908}
   m_Layer: 0
   m_Name: insu
   m_TagString: Player
@@ -139,6 +140,7 @@ MonoBehaviour:
   shieldObject: {fileID: 0}
   _player: {fileID: 0}
   text: {fileID: 0}
+  skillCount: 1
 --- !u!70 &-300876285396845766
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,3 +203,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2314266543810916908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8808365704388069106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a1f493172c6fe48bebf63e6fba88a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

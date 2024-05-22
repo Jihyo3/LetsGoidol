@@ -20,10 +20,11 @@ public class CharacterSkill : MonoBehaviour
     {
         instance = this;
         poolObject = GameObject.Find("Pool");       // Pool 오브젝트를 찾아서 연결
-        shieldObject = GameObject.Find("Shilde");   // Shilde 오브젝트를 찾아서 연결
+        shieldObject = GameObject.Find("Shiled");   // Shiled 오브젝트를 찾아서 연결
         player = this.transform;                    // 현재 오브젝트의 transform을 연결
         _player = GetComponent<Player>();           // 현재 오브젝트의 Player 컴포넌트를 연결
         text = GameObject.Find("SkillText");        // SkillText오브젝트를 찾아서 연결
+        //ItemShield.instance.player = this.gameObject;
 
         // GameObject.Find(" ") 는 현재 활성화 되어있는 오브젝트에서 이름을 찾아주는 코드
         // => 인스턴스를 위해 활성화해두고 시작하면 바로 비활성화 되게 설정
@@ -74,6 +75,8 @@ public class CharacterSkill : MonoBehaviour
     
     IEnumerator DisablePoolObject()
     {
+        // 기존의 활성화 되어 있는 fallingObject 비활성화
+
         // Pool 오브젝트를 비활성화
         poolObject.SetActive(false);
 
