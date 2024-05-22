@@ -10,7 +10,6 @@ public class ItemUse : MonoBehaviour
     [SerializeField] private GameObject shield;
     float[] itemTime = { 5f, 5f, 5f }; // 각각 아이템마다 시간 적용
     bool[] itemUse = { false , false, false }; // 각각 아이템마다 사용중인지 아닌지 체크
-    float back;
 
     private MissileStation missilestation;
 
@@ -40,7 +39,7 @@ public class ItemUse : MonoBehaviour
         }
         if (PlayerTimeCheck(2))
         {
-            FallingObject.instance.speed = back;
+            FallingObject.instance._speed = 1f;
             itemUse[2] = false;
             itemTime[2] = 5f;
         }
@@ -65,8 +64,7 @@ public class ItemUse : MonoBehaviour
 
         else if (collision.CompareTag("SlowDown"))
         {
-            back = FallingObject.instance.speed;
-            FallingObject.instance.speed = 2f;
+            FallingObject.instance._speed = 0.5f;
             itemUse[2] = true;
         }
         // 미사일을 얻는 로직
