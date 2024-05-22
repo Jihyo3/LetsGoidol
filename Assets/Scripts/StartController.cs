@@ -34,6 +34,7 @@ public class StartController : MonoBehaviour
 
         userInfoFilePath = Path.Combine(Application.persistentDataPath, "PlayerInfo.json");
         loginCanvasGroup = loginBgImg.GetComponent<CanvasGroup>();
+        startBtn.interactable = true;
 
     }
 
