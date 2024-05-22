@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     // 객체 풀링을 위한 ObjectPool 인스턴스
     public ObjectPool objectPool;
 
+    [SerializeField] private float startdelay =3f;
+    [SerializeField] private float delayTodelay = 5f;
+
     public int check;
     private void Awake()
     {
@@ -27,7 +30,7 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("FallingObjectCreat", 0.0f, 1.0f);
         // RandomItem 메서드를 호출 / 게임 시작 3초 뒤에 랜덤 아이템 생성 / 5초마다 랜덤 아이템 생성
         // 아이템의 크기 or 첫 생성 시간을 조절하여 오브젝트가 겹치지 않게 할 수 있습니다.
-        InvokeRepeating("RandomItem", 3.0f, 5.0f);
+        InvokeRepeating("RandomItem", startdelay, delayTodelay);
         StartCoroutine(DifCheck());
     }
 
