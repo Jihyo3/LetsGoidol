@@ -13,14 +13,18 @@ public class MissileStation : MonoBehaviour
     [SerializeField] private Missile prefab;
 
     [SerializeField] private TMP_Text missileNum;
-
+    [SerializeField] private GameObject playerContainer;
     public Transform playertransform; 
 
     int maxMissile = 5;
     private void Awake()
     {
         missileStation = new Stack<Missile>();
-        playertransform = FindObjectOfType<Player>().transform;
+    }
+
+    private void Start()
+    {
+        playertransform = playerContainer.GetComponentInChildren<Player>().transform;        
     }
     private void Update()
     {
@@ -29,9 +33,9 @@ public class MissileStation : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("M");
+            Debug.Log("Space");
             if (missileStation.Count > 0)
                 missileStation.Pop().Launch();
             else return;
