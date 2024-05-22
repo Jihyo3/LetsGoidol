@@ -45,7 +45,7 @@ public class CharacterSkill : MonoBehaviour
 
         // 아이템쉴드 스크립트의 17 번 줄에서 오류발생
         // 리지드바디? MainScene에서는 전부 합칠거니까 잠시 보류
-        if (shieldObject.activeSelf)
+        if (shieldObject.activeSelf)    // .activeSelf => 오브젝트가 활성화 상태인지 bool값으로 반환
         {
             Vector2 playerPosition = player.transform.position;
             shieldObject.transform.position = playerPosition + new Vector2(0, 1.5f);

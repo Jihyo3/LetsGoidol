@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -7,17 +8,33 @@ public class MissileStation : MonoBehaviour
 {
     // 얻은 미사일을 관리하는 클래스. 미사일 puch, 미사일pop
     // 5개짜리 리스트
-    Stack<Missile> missileStation = new Stack<Missile>();
-    [SerializeField] private Missile prefab;
-    int maxMissile = 5;
+    private Stack<Missile> missileStation;    
 
+    [SerializeField] private Missile prefab;
+
+    [SerializeField] private TMP_Text missileNum;
+
+    public Transform playertransform; 
+
+    int maxMissile = 5;
+    private void Awake()
+    {
+        missileStation = new Stack<Missile>();
+        playertransform = FindObjectOfType<Player>().transform;
+    }
+    private void Update()
+    {
+        missileNum.text = missileStation.Count.ToString();
+    }
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            if (!missileStation.Contains(prefab)) { return; }
-            missileStation.Pop().Launch();
+            Debug.Log("M");
+            if (missileStation.Count > 0)
+                missileStation.Pop().Launch();
+            else return;
         }
     }
 
@@ -32,16 +49,13 @@ public class MissileStation : MonoBehaviour
     }
 
     public void DebugPushPushMissile()
-    {
-        
-            MakeMissile();
-        
-        missileStation.Pop().Launch();
+    {        
+        MakeMissile();        
     }
 
     // 이벤트가 작동하면 미사일을 생성하는 함수
     public void MakeMissile()
     {
-        missileStation.Push(Instantiate(prefab, transform));
+        missileStation.Push(Instantiate(prefab, playertransform));
     }
 }
