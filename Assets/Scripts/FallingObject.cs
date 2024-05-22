@@ -7,7 +7,6 @@ public class FallingObject : MonoBehaviour
 {
     static public FallingObject instance;
     public float speed = 3f;    // 낙하 속도
-    public float _speed = 1f;
     bool[] Check = { true, true, true };
 
     private void Awake()
@@ -34,7 +33,6 @@ public class FallingObject : MonoBehaviour
 
     private void Update()
     {
-        speed = speed * _speed;
         // 현재 오브젝트가 아래로 speed 만큼 이동
         transform.position += Vector3.down * speed * Time.deltaTime;
         Difficulty();

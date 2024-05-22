@@ -39,7 +39,7 @@ public class ItemUse : MonoBehaviour
         }
         if (PlayerTimeCheck(2))
         {
-            FallingObject.instance._speed = 1f;
+            Time.timeScale = 1f;
             itemUse[2] = false;
             itemTime[2] = 5f;
         }
@@ -64,7 +64,7 @@ public class ItemUse : MonoBehaviour
 
         else if (collision.CompareTag("SlowDown"))
         {
-            FallingObject.instance._speed = 0.5f;
+            Time.timeScale = 0.5f;
             itemUse[2] = true;
         }
         // 미사일을 얻는 로직
