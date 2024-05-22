@@ -11,6 +11,7 @@ public class ItemShield : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        player = GameObject.FindGameObjectWithTag("Player");
         rb2d = GetComponent<Rigidbody2D>();
     }
 
