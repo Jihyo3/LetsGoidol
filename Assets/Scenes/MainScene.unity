@@ -1971,6 +1971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39d4f57180fb0974e99f1ff2b85906d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerContainer: {fileID: 1436471328}
   player: {fileID: 0}
   duration: 1.9
   sightSize: 2
@@ -3384,7 +3385,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4734771536777530260}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7fa71502455cf554f83628164f9f23b2, type: 3}

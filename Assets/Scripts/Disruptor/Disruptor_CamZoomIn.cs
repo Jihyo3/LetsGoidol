@@ -7,7 +7,8 @@ public class Disruptor_CamZoonIn : Disruptor
     // 플레이어를 중심으로 카메라의 시야를 좁히는 방해물입니다.
 
     private Disruptor disruptor;
-    [SerializeField] private GameObject player; // 유니티 인스펙터에서 캐싱 필요합니다.
+    [SerializeField] private GameObject playerContainer; // 유니티 직접 캐싱
+    [SerializeField] private Player player;
     private Camera _mainCamera;
     private AudioSource audioSource;
 
@@ -23,7 +24,10 @@ public class Disruptor_CamZoonIn : Disruptor
         _mainCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
     }
-
+    private void Start()
+    {
+        player = playerContainer.GetComponentInChildren<Player>();
+    }
 
     public override void Execute()
     {

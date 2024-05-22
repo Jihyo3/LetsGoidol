@@ -21,17 +21,21 @@ public class MissileStation : MonoBehaviour
     {
         missileStation = new Stack<Missile>();
     }
+
+    private void Start()
+    {
+        playertransform = playerContainer.GetComponentInChildren<Player>().transform;        
+    }
     private void Update()
     {
-        playertransform = playerContainer.GetComponentInChildren<Player>().transform;
         missileNum.text = missileStation.Count.ToString();
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("M");
+            Debug.Log("Space");
             if (missileStation.Count > 0)
                 missileStation.Pop().Launch();
             else return;
