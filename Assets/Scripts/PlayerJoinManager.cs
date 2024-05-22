@@ -9,12 +9,14 @@ using System;
 [System.Serializable]
 public class User
 {
+    // Json에 저장할 User 정보
     public string id;
     public string password;
-    public string selectedCharacter; // 추가된 필드
+    public string selectedCharacter;
 }
 
 [System.Serializable]
+// 저장할때 리스트로 저장하려고
 public class UserList
 {
     public List<User> users;
@@ -22,14 +24,14 @@ public class UserList
 
 public class PlayerJoinManager : MonoBehaviour
 {
-    public TMP_InputField idField;
-    public TMP_InputField passWordField;
-    public Text idWarningTxt;
-    public Text passWordWarningTxt;
-    public Button joinCheckBtn;
+    public TMP_InputField idField;              // Id 필드
+    public TMP_InputField passWordField;        // Password 필드
+    public Text idWarningTxt;                   // Id 유효성 검사 실패시 나오는 경고문구
+    public Text passWordWarningTxt;             // Password 유효성 검사 실패시 나오는 경고문구
+    public Button joinCheckBtn;                 // Join 버튼
 
-    private string userInfoFilePath;
-    public event Action UserAddedSuccessfully;
+    private string userInfoFilePath;            // Json 경로
+    public event Action UserAddedSuccessfully; 
 
     private bool insu = false;
     private bool sujeong = false;
@@ -147,43 +149,27 @@ public class PlayerJoinManager : MonoBehaviour
         Clickbtn();
     }
 
+    // 버튼 클릭 이벤트 함수
     void OnJoinCheckBtnClick()
     {
         string id = idField.text;
         string password = passWordField.text;
 
-        if (IdCheck(id))
-        {
-            idWarningTxt.gameObject.SetActive(true);
-        }
-        else
-        {
-            idWarningTxt.gameObject.SetActive(false);
-        }
+        bool isIdValid = !IdCheck(id);
+        bool isPasswordValid = PasswordCheck(password);
 
-        if (!PasswordCheck(password))
-        {
-            passWordWarningTxt.gameObject.SetActive(true);
-        }
-        else
-        {
-            passWordWarningTxt.gameObject.SetActive(false);
-        }
+        idWarningTxt.gameObject.SetActive(!isIdValid);
+        passWordWarningTxt.gameObject.SetActive(!isPasswordValid);
 
-        if (!IdCheck(id) && PasswordCheck(password))
+        if (isIdValid && isPasswordValid)
         {
             SaveUser(id, password, selectplayer);
             UserAddedSuccessfully?.Invoke();
-        }
 
-        if (selectplayer != null)
-        {
             PlayerPrefs.SetString("selectPlayer", selectplayer);
             PlayerPrefs.SetFloat("PlayerPositionX", 0);
             PlayerPrefs.SetFloat("PlayerPositionY", 0);
             PlayerPrefs.SetFloat("PlayerPositionZ", 0);
-
-            SceneManager.LoadScene("MainScene");
         }
         else
         {
@@ -191,6 +177,7 @@ public class PlayerJoinManager : MonoBehaviour
         }
     }
 
+    // ID 유효성 검사하는 함수
     bool IdCheck(string id)
     {
         if (File.Exists(userInfoFilePath))
@@ -211,16 +198,18 @@ public class PlayerJoinManager : MonoBehaviour
         return false;
     }
 
+    // Password 유효성 검사하는 함수
     bool PasswordCheck(string password)
     {
         return password.Length >= 4 && password.Length <= 12;
     }
 
+
+    // Json파일에 저장하는 함수
     void SaveUser(string id, string password, string selectedCharacter)
     {
         if (string.IsNullOrEmpty(userInfoFilePath))
         {
-            Debug.LogError("userInfoFilePath is null or empty!");
             return;
         }
 

@@ -16,6 +16,7 @@ public class StartController : MonoBehaviour
     [SerializeField] private GameObject multiBgImg;
     public Button loginBtn;
     public Button startBtn;
+    public Button joinBtn;
     public TMP_InputField myIdField;
     public TMP_InputField myPassWordField;
     public PlayerJoinManager playerJoinManager;
@@ -52,11 +53,17 @@ public class StartController : MonoBehaviour
 
     public void JoinTxtClick()
     {
+        loginCanvasGroup.alpha = 0;
+        loginBgImg.SetActive(false);
         joinBgImg.SetActive(true);
+        startBtn.gameObject.SetActive(true);
+        loginBtn.gameObject.SetActive(false);
+        startBtn.interactable = false;
     }
 
     public void JoinCloseBtnClick()
     {
+        startBtn.interactable = true;
         joinBgImg.SetActive(false);
     }
 
@@ -72,7 +79,7 @@ public class StartController : MonoBehaviour
         StartCoroutine(ShowloginImg());
         startBtn.gameObject.SetActive(false);
         loginBtn.gameObject.SetActive(true);
-        
+
     }
 
     public void SetBtnClick()
