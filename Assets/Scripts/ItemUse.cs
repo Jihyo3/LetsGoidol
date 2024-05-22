@@ -12,11 +12,12 @@ public class ItemUse : MonoBehaviour
     bool[] itemUse = { false , false, false }; // 각각 아이템마다 사용중인지 아닌지 체크
     float back;
 
-
+    private MissileStation missilestation;
 
     private void Awake()
     {
         player = GetComponent<Transform>();
+        missilestation = FindObjectOfType<MissileStation>();
     }
 
     private void Update()
@@ -67,6 +68,11 @@ public class ItemUse : MonoBehaviour
             back = FallingObject.instance.speed;
             FallingObject.instance.speed = 2f;
             itemUse[2] = true;
+        }
+        // 미사일을 얻는 로직
+        else if (collision.CompareTag("AddMissile"))
+        {
+            missilestation.MakeMissile();
         }
 
     }
