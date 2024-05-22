@@ -7,16 +7,18 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CharacterSkill : MonoBehaviour
 {
+    public static CharacterSkill instance;
     public GameObject poolObject;           // 떨어지는 오브젝트 제거 스킬을 위해 연결
     private Transform player;               // SizeDown 스킬을 위해 Transform 연결
     public GameObject shieldObject;         // shield 스킬을 위해 오브젝트 연결
     public Player _player;                  // SpeedUP 스킬을 위해 Player스크립트 연결
     public GameObject text;                 // 특수능력 없음 스킬을 위해 TEXT오브젝트 연결
 
-    private int skillCount = 1;             // 스킬 사용 가능 횟수
+    public int skillCount = 1;             // 스킬 사용 가능 횟수
 
     private void Awake()
     {
+        instance = this;
         poolObject = GameObject.Find("Pool");       // Pool 오브젝트를 찾아서 연결
         shieldObject = GameObject.Find("Shilde");   // Shilde 오브젝트를 찾아서 연결
         player = this.transform;                    // 현재 오브젝트의 transform을 연결

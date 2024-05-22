@@ -39,7 +39,6 @@ public class ItemUse : MonoBehaviour
         }
         if (PlayerTimeCheck(2))
         {
-            Time.timeScale = 1f;
             itemUse[2] = false;
             itemTime[2] = 5f;
         }
@@ -62,9 +61,9 @@ public class ItemUse : MonoBehaviour
             itemUse[1] = true;
         }
 
-        else if (collision.CompareTag("SlowDown"))
+        else if (collision.CompareTag("MoreSkill"))
         {
-            Time.timeScale = 0.5f;
+            CharacterSkill.instance.skillCount++;           
             itemUse[2] = true;
         }
         // 미사일을 얻는 로직
