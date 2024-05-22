@@ -37,7 +37,7 @@ public class CharacterSkill : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))                // W 키를 입력하면
         {
-            if (skillCount == 1)                     // 스킬사용 가능 횟수가 1 일 때
+            if (skillCount >= 1)                     // 스킬사용 가능 횟수가 1 일 때
             {
                 UseSkill();                         // 스킬 사용
                 skillCount--;                       // 스킬 사용횟수 감소
