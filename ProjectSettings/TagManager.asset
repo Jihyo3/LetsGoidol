@@ -10,6 +10,8 @@ TagManager:
   - item3
   - UserShield
   - FallingObject
+  - SizeDownItem
+  - SlowDown
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - FallingObject
+  - Missile
   - 
   - 
   - 
