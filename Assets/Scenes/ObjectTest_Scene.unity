@@ -973,10 +973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c47b3324196814b89fc10eb4f74604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolObject: {fileID: 1563570523}
-  shieldObject: {fileID: 191379915}
-  _player: {fileID: 946966515}
-  text: {fileID: 594561402}
 --- !u!1001 &1283196187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1316,6 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  id: 
 --- !u!4 &1752013429
 Transform:
   m_ObjectHideFlags: 0

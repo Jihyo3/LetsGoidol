@@ -30,23 +30,33 @@ public class PlayerIntro : MonoBehaviour
     {
         if (insu)
         {
+            Debug.Log("0번 선택");
             selectplayer = players[0].name;
+            CharacterSkill.UseSkill(0);
         }
         else if (sujeong)
         {
+            Debug.Log("1번 선택");
             selectplayer = players[1].name;
+            CharacterSkill.UseSkill(1);
         }
         else if (jihyo)
         {
+            Debug.Log("2번 선택");
             selectplayer = players[2].name;
+            CharacterSkill.UseSkill(2);
         }
         else if (puk)
         {
+            Debug.Log("3번 선택");
             selectplayer = players[3].name;
+            CharacterSkill.UseSkill(3);
         }
         else
         {
+            Debug.Log("4번 선택");
             selectplayer = players[4].name;
+            CharacterSkill.UseSkill(4);
         }
     }
 
