@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     // 배열로 아이템 프리팹을 저장할 변수
     // GameManager 인스펙터 창에서 증가 감소 가능
     public GameObject[] falling_ItemPrefabs;
+    public Sprite[] ObstacleImgs;
 
     // 객체 풀링을 위한 ObjectPool 인스턴스
     public ObjectPool objectPool;
@@ -41,7 +42,16 @@ public class GameManager : MonoBehaviour
         GameObject obj = objectPool.GetPooledObject();      // 풀에서 비활성화된 obj를 받아오기
         if (obj != null)                                    // obj가 null이 아니면
         {
-            obj.SetActive(true);                            // obj 활성화
+            // obj의 SpriteRenderer 컴포넌트 가져오기
+            SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
+
+            // ObstacleImgs 배열에서 랜덤으로 이미지 선택
+            int randomImageIndex = Random.Range(0, ObstacleImgs.Length);
+
+            // 선택된 이미지를 해당 아이템의 Sprite로 설정
+            spriteRenderer.sprite = ObstacleImgs[randomImageIndex];
+
+            obj.SetActive(true);                              // obj 활성화
         }
     }
 

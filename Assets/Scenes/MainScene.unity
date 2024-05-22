@@ -502,6 +502,12 @@ MonoBehaviour:
   - {fileID: 2508926964978624959, guid: ed380c690068d6e4ba661edb3477a384, type: 3}
   - {fileID: 2508926964978624959, guid: 9613f9c05118bce43ac0a55a8cc654da, type: 3}
   - {fileID: 2508926964978624959, guid: 76dbac65e18190c40923cf40bd374ab9, type: 3}
+  ObstacleImgs:
+  - {fileID: 21300000, guid: 0bc0346d3d6568245bea748fbbad6821, type: 3}
+  - {fileID: 21300000, guid: 5cf51a858bf938d499237b23c885450d, type: 3}
+  - {fileID: 21300000, guid: abf625c1a3080cd40994a33bedb1c16f, type: 3}
+  - {fileID: 21300000, guid: 02080f5c338806f47ad7214cf8e4fb46, type: 3}
+  - {fileID: 21300000, guid: 9c34c069e051e9d4da07151ec0e27b2d, type: 3}
   objectPool: {fileID: 919731777}
   check: 0
 --- !u!4 &209994569
