@@ -40,7 +40,6 @@ public class PlayerJoinManager : MonoBehaviour
     private GameObject selectplayerimage;
     public Sprite[] images;
     public Image DefaultPlayerImg;
-    private bool isPopupMenu = false;
     public GameObject[] players;
     public Text playerName;
 
@@ -88,23 +87,6 @@ public class PlayerJoinManager : MonoBehaviour
         }
     }
 
-    public void Join()
-    {
-        if (selectplayer != null)
-        {
-            PlayerPrefs.SetString("selectPlayer", selectplayer);
-            PlayerPrefs.SetFloat("PlayerPositionX", 0);
-            PlayerPrefs.SetFloat("PlayerPositionY", 0);
-            PlayerPrefs.SetFloat("PlayerPositionZ", 0);
-
-            SceneManager.LoadScene("MainScene2");
-        }
-        else
-        {
-            Debug.Log("아이돌이 선택되지 않았습니다!");
-        }
-    }
-
     public void selectedinsu()
     {
         insu = true;
@@ -115,7 +97,6 @@ public class PlayerJoinManager : MonoBehaviour
 
         DefaultPlayerImg.sprite = images[0];
         Clickbtn();
-        isPopupMenu = false;
     }
 
     public void selectedsujeong()
@@ -128,7 +109,6 @@ public class PlayerJoinManager : MonoBehaviour
 
         DefaultPlayerImg.sprite = images[1];
         Clickbtn();
-        isPopupMenu = false;
     }
 
     public void selectedjihyo()
@@ -141,7 +121,6 @@ public class PlayerJoinManager : MonoBehaviour
 
         DefaultPlayerImg.sprite = images[2];
         Clickbtn();
-        isPopupMenu = false;
     }
 
     public void selectedpuk()
@@ -154,7 +133,6 @@ public class PlayerJoinManager : MonoBehaviour
 
         DefaultPlayerImg.sprite = images[3];
         Clickbtn();
-        isPopupMenu = false;
     }
 
     public void selectedygs()
@@ -167,7 +145,6 @@ public class PlayerJoinManager : MonoBehaviour
 
         DefaultPlayerImg.sprite = images[4];
         Clickbtn();
-        isPopupMenu = false;
     }
 
     void OnJoinCheckBtnClick()
@@ -197,6 +174,20 @@ public class PlayerJoinManager : MonoBehaviour
         {
             SaveUser(id, password, selectplayer);
             UserAddedSuccessfully?.Invoke();
+        }
+
+        if (selectplayer != null)
+        {
+            PlayerPrefs.SetString("selectPlayer", selectplayer);
+            PlayerPrefs.SetFloat("PlayerPositionX", 0);
+            PlayerPrefs.SetFloat("PlayerPositionY", 0);
+            PlayerPrefs.SetFloat("PlayerPositionZ", 0);
+
+            SceneManager.LoadScene("MainScene");
+        }
+        else
+        {
+            Debug.Log("아이돌이 선택되지 않았습니다!");
         }
     }
 
