@@ -17,7 +17,6 @@ public class CharacterSkill : MonoBehaviour
 
     private void Awake()
     {
-<<<<<<< HEAD
         poolObject = GameObject.Find("Pool");       // Pool 오브젝트를 찾아서 연결
         shieldObject = GameObject.Find("Shilde");   // Shilde 오브젝트를 찾아서 연결
         player = this.transform;                    // 현재 오브젝트의 transform을 연결
@@ -28,9 +27,7 @@ public class CharacterSkill : MonoBehaviour
         // => 인스턴스를 위해 활성화해두고 시작하면 바로 비활성화 되게 설정
         shieldObject.SetActive(false);
         text.SetActive(false);
-=======
         player = GetComponent<Transform>();
->>>>>>> parent of ed3055f (Add_playerskill)
     }
 
     void Update()
@@ -58,7 +55,6 @@ public class CharacterSkill : MonoBehaviour
 
     void UseSkill()
     {
-<<<<<<< HEAD
         if (gameObject.name == "insu(Clone)")       // 현재 오브젝트의 이름이 insu 일때
             StartCoroutine(DisablePoolObject());    // 떨어지는 오브젝트 3초간 제거
 
@@ -73,14 +69,6 @@ public class CharacterSkill : MonoBehaviour
 
         else if (gameObject.name == "puk(Clone)")
             StartCoroutine(ActiveText());           // 텍스트 스킬 3초간 활성화
-=======
-        // 캐릭터 구분으로 호출 수정 필요
-        //StartCoroutine(DisablePoolObject());    // 떨어지는 오브젝트 3초간 제거
-        //StartCoroutine(SizeDown());             // 플레이어 크기 3초간 줄이기
-        //StartCoroutine(ActiveSheild());         // 쉴드 오브젝트 3초간 활성화  (태그 UserShiled 확인)
-        //StartCoroutine(SpeedUp());              // 이동 속도 3초간 증가
-        StartCoroutine(ActiveText());           // 텍스트 스킬 3초간 활성화
->>>>>>> parent of ed3055f (Add_playerskill)
     }
     
     IEnumerator DisablePoolObject()
