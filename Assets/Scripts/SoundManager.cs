@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
@@ -12,6 +13,8 @@ public class SoundManager : MonoBehaviour
     public Toggle backGroundMusic3;
     //private Toggle currentToggle;
     private AudioSource audioSource;
+    public AudioMixer mixer;
+    public Slider volume;
 
     private void Awake()
     {
@@ -63,6 +66,11 @@ public class SoundManager : MonoBehaviour
         {
             PlayBackgroundMusic(2);
         }
+    }
+
+    public void SetLevel(float sliderVal)
+    {
+        mixer.SetFloat("BackMg", Mathf.Log10(sliderVal) * 20);
     }
 
 }
