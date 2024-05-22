@@ -11,7 +11,7 @@ public class CharacterSkill : MonoBehaviour
     private Transform player;               // SizeDown 스킬을 위해 Transform 연결
     public GameObject shieldObject;         // shield 스킬을 위해 오브젝트 연결
     public Player _player;                  // SpeedUP 스킬을 위해 Player스크립트 연결
-    public GameObject text;                       // 특수능력 없음 스킬을 위해 TEXT오브젝트 연결
+    public GameObject text;                 // 특수능력 없음 스킬을 위해 TEXT오브젝트 연결
 
     private int skillCount = 1;             // 스킬 사용 가능 횟수
 
@@ -30,6 +30,9 @@ public class CharacterSkill : MonoBehaviour
                 skillCount--;
             }
         }
+
+        // 특수능력 없음 텍스트가 캐릭터 머리 위에 나오게 위치 설정
+        text.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1.0f, 0));
     }
 
     void UseSkill()
@@ -39,7 +42,7 @@ public class CharacterSkill : MonoBehaviour
         //StartCoroutine(SizeDown());             // 플레이어 크기 3초간 줄이기
         //StartCoroutine(ActiveSheild());         // 쉴드 오브젝트 3초간 활성화  (태그 UserShiled 확인)
         //StartCoroutine(SpeedUp());              // 이동 속도 3초간 증가
-        StartCoroutine(ActiveText());
+        StartCoroutine(ActiveText());           // 텍스트 스킬 3초간 활성화
     }
     
     IEnumerator DisablePoolObject()
