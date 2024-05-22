@@ -8,7 +8,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class Player : MonoBehaviour
 {
     float direction = 0.05f;
-    float speed = 6;
+    public float speed = 6;
     SpriteRenderer renderer;
 
     private GameObject player;
