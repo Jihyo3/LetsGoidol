@@ -9,6 +9,7 @@ public class Intercept_Missile : Missile
     private GameObject player;
     Ladar ladar;
     Rigidbody2D rb;
+    CapsuleCollider2D capsuleCollider;
 
     Vector2 direction;
 
@@ -22,6 +23,7 @@ public class Intercept_Missile : Missile
 
     private void Awake()
     {
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         ladar = FindObjectOfType<Ladar>();
         player = transform.root.gameObject;
@@ -50,6 +52,7 @@ public class Intercept_Missile : Missile
     public override void Launch()
     {
         IsLaunched = true;
+        capsuleCollider.enabled = true;
         GetTarget();
     }
 
