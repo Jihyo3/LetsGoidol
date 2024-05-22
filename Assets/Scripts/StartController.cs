@@ -65,6 +65,8 @@ public class StartController : MonoBehaviour
     public void JoinCloseBtnClick()
     {
         startBtn.interactable = true;
+        startBtn.gameObject.SetActive(true);
+        loginBtn.gameObject.SetActive(false);
         joinBgImg.SetActive(false);
     }
 
