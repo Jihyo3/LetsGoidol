@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6711881707830945991}
   - component: {fileID: 3398207128125230431}
   - component: {fileID: 867590432232988757}
+  - component: {fileID: -5457312766412657655}
   m_Layer: 0
   m_Name: sujeong
   m_TagString: Player
@@ -215,3 +216,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a1f493172c6fe48bebf63e6fba88a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5457312766412657655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966896503936209580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec2946b1b180064b9e7500cc89cd5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shield: {fileID: 0}

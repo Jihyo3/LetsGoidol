@@ -78,11 +78,6 @@ public class CharacterSkill : MonoBehaviour
 
     IEnumerator DisablePoolObject()
     {
-        // 기존의 활성화 되어 있는 fallingObject 비활성화
-        if (fo.activeSelf)
-        {
-            fo.SetActive(false);
-        }
         // Pool 오브젝트를 비활성화
         poolObject.SetActive(false);
 
