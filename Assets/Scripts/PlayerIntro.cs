@@ -17,46 +17,39 @@ public class PlayerIntro : MonoBehaviour
     private bool ygs = false;
     private bool puk = false;
     private string selectplayer;
-    private GameObject selectplayerimage; 
+    private GameObject selectplayerimage;
     public Sprite[] images;
     public GameObject popupMenu;
     public Image DefaultPlayerImg;
     private bool isPopupMenu = false;
-    
-    //캐릭터 이미지 가져오기
+    public static int skill;
+
     public GameObject[] players;
 
-    public void Clickbtn()
+    public void Clickbtn(int skillValue)
     {
         if (insu)
         {
-            Debug.Log("0번 선택");
             selectplayer = players[0].name;
-            CharacterSkill.UseSkill(0);
         }
         else if (sujeong)
         {
-            Debug.Log("1번 선택");
             selectplayer = players[1].name;
-            CharacterSkill.UseSkill(1);
+
         }
         else if (jihyo)
         {
-            Debug.Log("2번 선택");
             selectplayer = players[2].name;
-            CharacterSkill.UseSkill(2);
+
         }
         else if (puk)
         {
-            Debug.Log("3번 선택");
             selectplayer = players[3].name;
-            CharacterSkill.UseSkill(3);
         }
         else
         {
-            Debug.Log("4번 선택");
             selectplayer = players[4].name;
-            CharacterSkill.UseSkill(4);
+
         }
     }
 
@@ -70,7 +63,7 @@ public class PlayerIntro : MonoBehaviour
             PlayerPrefs.SetFloat("PlayerPositionY", 0);
             PlayerPrefs.SetFloat("PlayerPositionZ", 0);
 
-            SceneManager.LoadScene("MainScene2");
+            SceneManager.LoadScene("MainScene2 1");
         }
         else
         {
@@ -86,7 +79,8 @@ public class PlayerIntro : MonoBehaviour
         puk = false;
 
         DefaultPlayerImg.sprite = images[0];
-        Clickbtn();
+        skill = 0;
+        Clickbtn(skill);
         isPopupMenu = false;
         popupMenu.SetActive(false);
     }
@@ -100,7 +94,8 @@ public class PlayerIntro : MonoBehaviour
         puk = false;
 
         DefaultPlayerImg.sprite = images[1];
-        Clickbtn();
+        skill = 1;
+        Clickbtn(skill);
         isPopupMenu = false;
         popupMenu.SetActive(false);
     }
@@ -114,7 +109,8 @@ public class PlayerIntro : MonoBehaviour
         puk = false;
 
         DefaultPlayerImg.sprite = images[2];
-        Clickbtn();
+        skill = 2;
+        Clickbtn(skill);
         isPopupMenu = false;
         popupMenu.SetActive(false);
     }
@@ -128,7 +124,8 @@ public class PlayerIntro : MonoBehaviour
         puk = true;
 
         DefaultPlayerImg.sprite = images[3];
-        Clickbtn();
+        skill = 3;
+        Clickbtn(skill);
         isPopupMenu = false;
         popupMenu.SetActive(false);
     }
@@ -142,7 +139,8 @@ public class PlayerIntro : MonoBehaviour
         puk = false;
 
         DefaultPlayerImg.sprite = images[4];
-        Clickbtn();
+        skill = 4;
+        Clickbtn(skill);
         isPopupMenu = false;
         popupMenu.SetActive(false);
     }
