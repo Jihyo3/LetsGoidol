@@ -46,7 +46,8 @@ public class PlayerJoinManager : MonoBehaviour
     public Text playerName;
 
     void Start()
-    {
+    { 
+
         userInfoFilePath = Path.Combine(Application.persistentDataPath, "PlayerInfo.json");
 
         if (!File.Exists(userInfoFilePath))
