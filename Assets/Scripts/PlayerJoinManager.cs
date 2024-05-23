@@ -24,6 +24,7 @@ public class UserList
 
 public class PlayerJoinManager : MonoBehaviour
 {
+    public StartController startController;
     public TMP_InputField idField;              // Id 필드
     public TMP_InputField passWordField;        // Password 필드
     public Text idWarningTxt;                   // Id 유효성 검사 실패시 나오는 경고문구
@@ -171,13 +172,19 @@ public class PlayerJoinManager : MonoBehaviour
             PlayerPrefs.SetFloat("PlayerPositionX", 0);
             PlayerPrefs.SetFloat("PlayerPositionY", 0);
             PlayerPrefs.SetFloat("PlayerPositionZ", 0);
+
+            JoinCheckBtn();
         }
         else
         {
             Debug.Log("아이돌이 선택되지 않았습니다!");
         }
     }
-
+    public void JoinCheckBtn()
+    {
+        // StartController의 JoinCloseBtnClick 함수 호출
+        startController.JoinCloseBtnClick();
+    }
     // ID 유효성 검사하는 함수
     bool IdCheck(string id)
     {

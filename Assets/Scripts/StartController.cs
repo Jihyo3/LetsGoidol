@@ -22,6 +22,7 @@ public class StartController : MonoBehaviour
     public PlayerJoinManager playerJoinManager;
     public float delayTime = 5f;
     private CanvasGroup loginCanvasGroup;
+    private string selectplayer;
 
     private string userInfoFilePath; 
 
@@ -104,7 +105,11 @@ public class StartController : MonoBehaviour
 
         if (CheckLogin(enteredId, enteredPassword))
         {
-            ScoreManager.instance.id = myIdField.text;
+            PlayerPrefs.SetString("selectPlayer", selectplayer);
+            PlayerPrefs.SetFloat("PlayerPositionX", 0);
+            PlayerPrefs.SetFloat("PlayerPositionY", 0);
+            PlayerPrefs.SetFloat("PlayerPositionZ", 0);
+
             SceneManager.LoadScene("MainScene");
         }
         else
@@ -127,6 +132,7 @@ public class StartController : MonoBehaviour
                 {
                     if (user.id == enteredId && user.password == enteredPassword)
                     {
+                        selectplayer = user.selectedCharacter; // selectplayer ¼³Á¤
                         return true;
                     }
                 }
