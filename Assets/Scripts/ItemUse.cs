@@ -64,7 +64,7 @@ public class ItemUse : MonoBehaviour
 
         else if (collision.CompareTag("MoreSkill"))
         {
-            CharacterSkill.instance.skillCount++;           
+            CharacterSkill.instance.skillCount = CharacterSkill.instance.skillCount + 1;           
             itemUse[2] = true;
         }
         // 미사일을 얻는 로직
